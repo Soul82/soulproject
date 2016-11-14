@@ -18,7 +18,7 @@
 					<hr />
 					<input type="submit" value="로그인" />
 				</form>
-			<a href="">아직회원이아니십니까?</a>
+			<a href="/member/joinPage">아직회원이아니십니까?</a>
 		</div>
 	</c:when>
 	<c:otherwise>

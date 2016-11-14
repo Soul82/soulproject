@@ -9,7 +9,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+<form action="/member/joinConfirm">
 <div align="center" class="container">
 	<table border="1" style="width: 50%; border-radius: 1em;">
 		<caption>
@@ -28,9 +28,7 @@
 						<div id="memberId_tr" class="wrap_input_info05 d_input_write"
 							style="width: 331px;">
 							<div class="wrap_input">
-								<input type="text" id="memberId" name="memberId"
-									title="아이디 입력 편집창" placeholder="6~30자로 입력" class="text53"
-									style="width: 276px;">
+								<input type="text" id="id" name="id" title="아이디 입력 편집창" placeholder="6~30자로 입력" class="text53" style="width: 276px;">
 							</div>
 							<div class="wrap_input_check">
 								<a href="#" class="btn_input_check d_input_del"
@@ -49,13 +47,13 @@
 							class="wrap_input_info04 wrap_input_pw d_input_write"
 							style="width: 331px;">
 							<div class="wrap_input">
-								<input type="password" id="memberPwd1" name="memberPwd1"
+								<input type="password" id="pass" name="pass"
 									title="비밀번호 입력 편집창" placeholder="비밀번호 입력"
 									class="text53 d_input_key" style="width: 212px;"> <label
-									for="memberPwd1" class="pw_label">비밀번호 입력</label>
+									for="pass" class="pw_label">비밀번호 입력</label>
 							</div>
 							<div class="wrap_input" style="display: none;">
-								<input type="text" id="memberPwd12" title="비밀번호 입력 편집창"
+								<input type="text" id="pass2" title="비밀번호 입력 편집창"
 									placeholder="비밀번호 입력" class="text53 d_input_key"
 									style="width: 212px;">
 							</div>
@@ -79,10 +77,10 @@
 							class="wrap_input_info04 wrap_input_pw d_input_write mt12"
 							style="width: 331px;">
 							<div class="wrap_input" style="display: block;">
-								<input type="password" id="memberPwd2" name="memberPwd2"
+								<input type="password" id="pass2" name="memberPwd2"
 									title="비밀번호 확인 편집창" placeholder="비밀번호 확인"
 									class="text53 d_input_key" style="width: 212px;"> <label
-									for="memberPwd2" class="pw_label">비밀번호 확인</label>
+									for="pass2" class="pw_label">비밀번호 확인</label>
 							</div>
 							<div class="wrap_input" style="display: none;">
 								<input type="text" id="memberPwd22" title="비밀번호 입력 편집창"
@@ -102,13 +100,13 @@
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><div class="wrap">닉네임</div></th>
+				<th scope="row"><div class="wrap">이름</div></th>
 				<td>
 					<div class="wrap">
 						<div id="memberNick_tr" class="wrap_input_info04 d_input_write"
 							style="width: 331px;">
 							<div class="wrap_input">
-								<input type="text" id="memberNick" name="memberNick"
+								<input type="text" id="img" name="name"
 									title="닉네임 입력 편집창" placeholder="한글, 영문 2~15자" class="text53"
 									style="width: 276px;">
 							</div>
@@ -197,7 +195,7 @@
 							<div id="email_tr" class="wrap_input_info04 d_input_write"
 								style="width: 169px">
 								<div class="wrap_input">
-									<input id="email" name="email" type="text" title="이메일 입력 편집창"
+									<input id="mail" name="mail" type="text" title="이메일 입력 편집창"
 										placeholder="이메일 입력" class="text53" style="width: 116px;">
 								</div>
 								<div class="wrap_input_check">
@@ -256,5 +254,9 @@
 				</td>
 			</tr>
 		</tbody>
-	</table>
+	 </table>
 </div>
+<div align="center">
+	<input type="submit" value="회원가입"/>
+</div>
+</form>

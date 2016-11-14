@@ -19,7 +19,7 @@
 				<a class="navbar-brand" href="/index">Home</a>
 			</div>
 				<ul class="nav navbar-nav">
-					<li><a href="/member/join">회원가입</a></li>
+					<li><a href="/member/joinPage">회원가입</a></li>
 					<li><a href="#">자료실</a></li>
 				</ul>
 		</div>
