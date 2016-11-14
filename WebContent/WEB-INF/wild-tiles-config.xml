@@ -10,6 +10,7 @@
 	</definition>
 	
 	<definition name="body:*/*" extends="t:*">
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp"/>
 	</definition>
 

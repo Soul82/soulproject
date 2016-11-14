@@ -4,7 +4,6 @@
 <c:choose>
 	<c:when test="${sessionScope.userId eq null }">
 		<div>
-			<fieldset style="width: 500">
 				<legend>
 					<b>로그인</b>
 				</legend>
@@ -19,7 +18,6 @@
 					<hr />
 					<input type="submit" value="로그인" />
 				</form>
-			</fieldset>
 			<a href="">아직회원이아니십니까?</a>
 		</div>
 	</c:when>
