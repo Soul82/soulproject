@@ -56,7 +56,6 @@ article {
 
 </head>
 <body>
-<!-- <audio src="/audio/tt.mp3" autoplay="autoplay"></audio> -->
 	<div class="container">
 		<header>
 			<tiles:insertAttribute name="header"/>

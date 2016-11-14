@@ -30,7 +30,7 @@
 	</bean>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-	id="internalResourceViewResolver" p:order="9" p:prefix="/WEB-INF/view/" />
+	id="internalResourceViewResolver" p:order="9" p:prefix="/WEB-INF/view/" p:suffix=".jsp"/>
 	
 	<bean class="org.apache.tomcat.jdbc.pool.DataSource" id="ds">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
@@ -43,6 +43,8 @@
 		<property name="dataSource" ref="ds"/>
 		<property name="mapperLocations">
 			<list>
+				<value>/WEB-INF/mapper/member-mappers.xml</value>
+				<value>/WEB-INF/mapper/login-mappers.xml</value>
 			</list>
 		</property>
 	</bean>

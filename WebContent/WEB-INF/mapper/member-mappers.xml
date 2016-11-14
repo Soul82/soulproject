@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 	
 	<insert id="join" parameterType="java.util.HashMap" >
-		insert into member values(#{id}, #{pass}, #{mail}, #{name},#{gender},#{birth})
+		insert into member values(#{img}, #{id}, #{pass}, #{mail}, #{name}, #{gender}, #{birth} )
 	</insert>
 	
 </mapper>
