@@ -13,11 +13,11 @@ public class joinCon {
 	}
 	
 	@RequestMapping("/member/joinConfirm")
-	public ModelAndView join(String img,String id,String pass, String mail, String name, String gender, int birthYear, int birthMonth, int birthDay){
+	public ModelAndView join(String img,String id,String pass, String mail, String name, String gender, String birthYear, String birthMonth, String birthDay){
 		ModelAndView mv=new ModelAndView();
 		System.out.println(img+" / "+id+" / "+pass+" / "+mail+" / "+name+" / "+gender+" / "+birthYear+" / "+birthMonth+" / "+birthDay);
 		
-		int birth=(birthYear+birthMonth+birthDay);
+		String birth=birthYear+birthMonth+birthDay;
 		System.out.println("생년월일=="+birth);
 		
 		mv.setViewName("body:member/joinComplete");

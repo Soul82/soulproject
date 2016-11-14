@@ -10,8 +10,7 @@ public class Member {
 	String mail;
 	String name;
 	String gender;
-	int birth;
-	
+	String birth;
 	public String getImg() {
 		return img;
 	}
@@ -48,11 +47,10 @@ public class Member {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(int birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	
 }
