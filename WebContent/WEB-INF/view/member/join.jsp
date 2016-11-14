@@ -29,6 +29,7 @@
 							style="width: 331px;">
 							<div class="wrap_input">
 								<input type="text" id="id" name="id" title="아이디 입력 편집창" placeholder="6~30자로 입력" class="text53" style="width: 276px;">
+								<input type="text" id="img" name="img" title="아이디 입력 편집창" placeholder="img문자로 임시 대체" class="text53" style="width: 276px;">
 							</div>
 							<div class="wrap_input_check">
 								<a href="#" class="btn_input_check d_input_del"
