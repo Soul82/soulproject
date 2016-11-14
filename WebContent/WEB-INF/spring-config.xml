@@ -13,7 +13,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<context:component-scan base-package="main"/>
+	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven/>
+	
+	<context:component-scan base-package="Main"/>
+	<context:component-scan base-package="Member"/>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" id="beanNameViewResolver" p:order="1"/>
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" p:order="2"/>

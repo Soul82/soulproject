@@ -9,6 +9,6 @@ public class mainCon {
 	@RequestMapping("/index")
 	public String main() {
 
-		return "t:home";
+		return "t:nav";
 	}
 }

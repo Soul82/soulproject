@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <div align="center">
-Copyright <b>&copy;SoulCompany Crop.</b> <i>All rights reserved</i>
+Copyright <b>&copy;SoulSeller Crop.</b> <i>All rights reserved</i>
 	
 </div>
