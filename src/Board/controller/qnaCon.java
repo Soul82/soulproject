@@ -13,10 +13,14 @@ public class qnaCon {
 	@Autowired
 	qnaServ qs;
 	
-	@RequestMapping("")
+	@RequestMapping("/qna/qnaList")
+	public String qnaList(){
+		return "board:board/qnaboard/qnalist";
+	}
+	@RequestMapping("/qna/register")
 	public ModelAndView wirteCon(){
 		ModelAndView mv=new ModelAndView();
-		
+		mv.setViewName("board:board/qnaboard/qnawrite");
 		return mv;
 	}
 }

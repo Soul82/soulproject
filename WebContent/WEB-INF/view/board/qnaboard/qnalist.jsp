@@ -4,7 +4,7 @@
 
 
 <div class="container">
-	<h2>글 목록</h2> 
+	<h2>Q & A</h2> 
 	<hr/>
 	<table class="table">
 		<c:if test="${hit ne null}">
@@ -55,10 +55,9 @@
 
 
 <div align="right">
-	<form action="/file/reg.cnd">
+	<form action="/qna/register">
 		<input type="hidden" name="menu" value="board" />
-		<button type="submit" class="btn btn-primary" name="write">파일올리기</button>
-		<input type="button" class="btn btn-info" value="리뷰 등록" onclick="location.href='/file/myList.cnd'">
+		<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
 	</form>
 </div>
 
