@@ -2,6 +2,8 @@ package Board.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,28 +35,37 @@ public class qnaCon {
 	}
 	
 	@RequestMapping("/qna/regqna")
-	public ModelAndView qnaWrite(String cate, String title,String content){
+	public ModelAndView qnaWrite(HttpSession session,String cate,String title,String content){
 		ModelAndView mv=new ModelAndView();
-		System.out.println(cate+" / "+title+" / "+content);
-		int r=qs.regMemo(cate, content, title);
-		System.out.println(content);
+		String writer=(String)session.getAttribute("userId");
+		qnaVO qvo=new qnaVO();
+			qvo.setCate(cate);
+			qvo.setWriter(writer);
+			qvo.setTitle(title);
+			qvo.setContent(content);
+			
+		int r=qs.regMemo(qvo);
 		if(r==1){
-			mv.setViewName("board:board/qnaboard/qnalist");
+			mv.setViewName("redirect:/qna/qnaList");
 		}else {
 			mv.setViewName("body:board/errorpage");
 		}
 		return mv;
 	}
 	
-//	@RequestMapping("/qna/view")
-//	public ModelAndView qnaHit(int num){
-//		ModelAndView mv=new ModelAndView();
-//		System.out.println(num);
-//		mv.setViewName("board:board/qnaboard/qnalist");
-//		qnaVO qna=qs.hitQna(num);
-//		mv.addObject("obj",qna);
-//		
-//		return mv;
-//	}
+	@RequestMapping("/qna/view")
+	public ModelAndView qnaHit(int num){
+		ModelAndView mv=new ModelAndView();
+		System.out.println(num);
+		qnaVO qna=qs.clickQna(num);
+		if(qna==null){
+			mv.setViewName("body:board/errorpage");
+			return mv;
+		}else{
+			mv.setViewName("board:board/qnaboard/qnaview");
+			mv.addObject("obj",qna);
+			return mv;
+		}
+	}
 	
 }

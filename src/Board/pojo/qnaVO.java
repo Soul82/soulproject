@@ -8,11 +8,18 @@ import org.springframework.stereotype.Component;
 public class qnaVO {
 	int num;
 	String cate;
+	String writer;
 	String title;
 	String content;
 	int hit;
 	Date writedate;
 	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public int getNum() {
 		return num;
 	}

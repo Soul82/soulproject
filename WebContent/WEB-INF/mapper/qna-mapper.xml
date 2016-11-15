@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="qnaboard">
 	<insert id="insertMemo" parameterType="Board.pojo.qnaVO">
 		insert into qnaboard
-		values( #{cate }, #{title}, #{content},0, sysdate, qnaboard_seq.nextval, #{writer})
+		values(qnaboard_seq.nextval, #{cate },#{writer}, #{title}, #{content},0, sysdate)
 	</insert>
 	
 	<select id="getList" resultType="Board.pojo.qnaVO">
@@ -14,6 +14,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="count" parameterType="java.lang.Integer">
-		update qnaboard set count =	count +1 where num =#{num }
+		update qnaboard set hit = hit +1 where num =#{num }
+	</select>
+	
+	<select id="getView" parameterType="java.lang.Integer" resultType="Board.pojo.qnaVO">
+		select * from qnaboard where num=#{num}
 	</select>
 </mapper>
