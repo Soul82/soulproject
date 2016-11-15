@@ -30,6 +30,7 @@
 				<b>${userId}</b>
 				<ul>
 					<!--  <li><a href="">내 정보</a></li>  -->
+					<li><a href="/board/review">리뷰 작성</a></li>
 					<li><a href="/member/logout">로그아웃</a></li>
 					
 				</ul>
