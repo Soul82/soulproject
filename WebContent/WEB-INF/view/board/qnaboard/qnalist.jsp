@@ -24,11 +24,10 @@
 			<tr id="f${obj.num}">
 				<td> ${obj.num } </td>
 				<td> ${obj.cate } </td>
-				<td> ÀÛ¼ºÀÚ </td>
+				<td> ${obj.writer }  </td>
 				<td><a href="/qna/view?num=${obj.num }"> ${obj.title }</a> </td>
 				<td> ${obj.writedate } </a></td>
 				<td><span style="color: green">${obj.hit }</span> </td>
-<%-- 				<td><a href="/file/reviewView.cnd?filenum=${obj.num }"> review </a></td> --%>
 			</tr>
 			</c:forEach>
 		</tbody>

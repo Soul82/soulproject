@@ -8,10 +8,10 @@
 <div align="left" style="width: 50%">
 <form action="/qna/regqna" method="get" style="border-color: black">
 	<select name="cate">
-		<option value="music">노래 관련</option>
-		<option value="manage">운영 관련</option>
-		<option value="membership">로그인 관련</option>
-		<option value="etc">기타</option>
+		<option value="음악">음악</option>
+		<option value="서비스 문의">서비스 문의/오류</option>
+		<option value="회원정보">회원정보</option>
+		<option value="기타">기타</option>
 	</select>
 	<input type="text" name="title" size="81"/> <br/>
 	<textarea name="content" id="ta">
