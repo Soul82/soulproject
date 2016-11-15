@@ -19,11 +19,15 @@ public class qnaCon {
 	qnaServ qs;
 	
 	@RequestMapping("/qna/qnaList")
-	public ModelAndView qnaList(){
+	public ModelAndView qnaList(HttpSession session, int page){
 		ModelAndView mv=new ModelAndView();
-		List li=qs.allView();
+//		List li=qs.allView();
+		List li=qs.pagingQna(page);
+		
 		mv.setViewName("board:board/qnaboard/qnalist");
-		mv.addObject("data",li);
+		mv.addObject("data",li); // 전체 게시글 띄우기
+		mv.addObject("last",qs.LastPage()); //페이징 처리(최대 게시글 갯수 산출해서 객체 전달)
+		mv.addObject("logCheck",session.getAttribute("userId")); // 로그인체크여부 확인하기 - null인경우 글 등록 불가 처리
 		return mv;
 	}
 	
@@ -46,7 +50,7 @@ public class qnaCon {
 			
 		int r=qs.regMemo(qvo);
 		if(r==1){
-			mv.setViewName("redirect:/qna/qnaList");
+			mv.setViewName("redirect:/qna/qnaList?page=1");
 		}else {
 			mv.setViewName("body:board/errorpage");
 		}
@@ -56,7 +60,6 @@ public class qnaCon {
 	@RequestMapping("/qna/view")
 	public ModelAndView qnaHit(int num){
 		ModelAndView mv=new ModelAndView();
-		System.out.println(num);
 		qnaVO qna=qs.clickQna(num);
 		if(qna==null){
 			mv.setViewName("body:board/errorpage");

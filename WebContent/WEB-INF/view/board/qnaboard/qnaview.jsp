@@ -2,35 +2,26 @@
 	pageEncoding="EUC-KR"%>
 
 
-
-<div class="container">
-	<h2>Q & A</h2> 
-	<hr/>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>${obj.num }</th>
-				<th>${obj.cate }</th>
-				<th>${obj.writer }</th>
-				<th>${obj.title }</th>
-				<th>${obj.writedate }</th>
-				<th>${obj.hit }</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<tr id="f${obj.num}">
-				<td> ${obj.content } </td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Q & A</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">작성자</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="1" readonly="readonly" style="resize:none;">${obj.writer }</textarea>
+      </div>
+    </div>
 
 
-<div align="right">
-	<form action="/qna/regpage">
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">내용</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="10" readonly="readonly" style="resize:none;">${obj.content }</textarea>
+      </div>
+    </div>
 
-		<input type="hidden" name="menu" value="board" />
-		<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
-	</form>
-</div>
+      <div align="right" class="col-lg-10 col-lg-offset-2">
+        <input type="button" class="btn btn-default" onclick="location.href='/qna/qnaList?page=1'" value="목록으로"/>
+      </div>
+  </fieldset>
+</form>

@@ -20,7 +20,7 @@
 			</div>
 				<ul class="nav navbar-nav">
 					<li><a href="/member/joinPage">회원가입</a></li>
-					<li><a href="/qna/qnaList">자료실</a></li>
+					<li><a href="/qna/qnaList?page=1">자료실</a></li>
 				</ul>
 		</div>
 	</nav>

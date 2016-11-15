@@ -1,8 +1,7 @@
 package Board.model;
 
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -53,5 +52,30 @@ public class qnaServ {
 			ss.close();
 			return li;
 		}
+	}
+	
+	public List pagingQna(int page){
+		SqlSession ss=fac.openSession();
+		int block=5;
+		HashMap map=new HashMap();
+			map.put("start",(page*block)-4);
+			map.put("end",page*block);
+		List li=ss.selectList("qnaboard.qnaPaging",map);
+		ss.close();
+		return li;
+	}
+	
+	public int LastPage(){
+		SqlSession ss=fac.openSession();
+		int page=ss.selectOne("qnaboard.getCount");
+		ss.close();
+		
+		int s=page%5;
+		int div=page/5;
+
+		if(s>=1){
+			return div+=1;
+		}
+			return div;
 	}
 }

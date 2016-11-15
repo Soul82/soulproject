@@ -20,4 +20,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getView" parameterType="java.lang.Integer" resultType="Board.pojo.qnaVO">
 		select * from qnaboard where num=#{num}
 	</select>
+	
+	<select id="qnaPaging" parameterType="java.util.HashMap" resultType="Board.pojo.qnaVO">
+		<![CDATA[
+			select * from(
+			select rownum r,temp.* from 
+			(select * from qnaboard order by num desc) 
+				temp )
+					where r >= #{start} and r <= #{end}
+		]]>
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from qnaboard
+	</select>
+	
 </mapper>

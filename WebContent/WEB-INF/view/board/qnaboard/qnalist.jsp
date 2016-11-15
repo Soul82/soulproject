@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <div class="container">
 	<h2>Q & A</h2> 
 	<hr/>
@@ -17,7 +16,6 @@
 				<th>조회수</th>
 			</tr>
 		</thead>
-
 
 		<tbody>
 		<c:forEach var="obj" items="${data }">
@@ -39,31 +37,28 @@
 	<form action="/qna/regpage">
 
 		<input type="hidden" name="menu" value="board" />
-		<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
+		
+		<c:choose>
+			<c:when test="${logCheck eq null }">
+				[비로그인 상태]버튼 활성화하고 클릭할때 에러메세지 띄우고싶은데...
+			</c:when>
+			<c:otherwise>
+				<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
+			</c:otherwise>
+		</c:choose>
 	</form>
 </div>
-
 	
 <div align="center">
-	<ul class="pagination">
+	<ul class="pagination pagination-sm">
 	<c:forEach var="i" begin="1" end="${last }" >
-		<li class="active"><a href="/file/list.cnd?p=${i }">${i }</a></li>
+		<li><a href="/qna/qnaList?page=${i }">${i }</a></li>
 	</c:forEach>
 	</ul>
-	
-<!-- 	<form action="/file/searchReview.cnd"> -->
+
 	<form action="/file/searchReview.cnd?search=${obj.NUM }">
-	
 		<input type="text" name="search" />
 		<input type="submit" value="검색" />
 	</form>
 </div>
 
-<script>
-	function reviewPage(num){
-		var url = "/file/reviewView.cnd?filenum="+num;
-		window.open(url,"_blank","width=370,height=360,resizable=no");
-	} 
-	
-	
-</script>
