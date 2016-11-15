@@ -37,6 +37,7 @@ public class qnaCon {
 		ModelAndView mv=new ModelAndView();
 		System.out.println(cate+" / "+title+" / "+content);
 		int r=qs.regMemo(cate, content, title);
+		System.out.println(content);
 		if(r==1){
 			mv.setViewName("board:board/qnaboard/qnalist");
 		}else {
