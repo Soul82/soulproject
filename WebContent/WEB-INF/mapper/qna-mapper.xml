@@ -4,8 +4,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="qnaboard">
-	<insert id="insertMemo" parameterType="java.util.HashMap">
+	<insert id="insertMemo" parameterType="Board.pojo.qnaVO">
 		insert into qnaboard
-		values(qnaboard_seq.nextval, #{cate }, #{title}, #{content}, #{hit}, sysdate)
+		values( #{cate }, #{title}, #{content},0, sysdate, qnaboard_seq.nextval, #{writer})
 	</insert>
+	
+	<select id="getList" resultType="Board.pojo.qnaVO">
+		select * from qnaboard order by num desc
+	</select>
+	
+	<select id="count" parameterType="java.lang.Integer">
+		update qnaboard set count =	count +1 where num =#{num }
+	</select>
 </mapper>
