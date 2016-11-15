@@ -11,6 +11,8 @@ public class Member {
 	String name;
 	String gender;
 	String birth;
+	int notice;
+	
 	public String getImg() {
 		return img;
 	}
@@ -52,5 +54,11 @@ public class Member {
 	}
 	public void setBirth(String birth) {
 		this.birth = birth;
+	}
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
 	}
 }

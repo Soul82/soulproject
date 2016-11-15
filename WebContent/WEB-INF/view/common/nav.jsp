@@ -7,7 +7,7 @@
 				<legend>
 					<b>로그인</b>
 				</legend>
-				<form action="/index.jsp">
+				<form action="/member/login">
 					<b>ID</b> &nbsp;
 						
 							<br />
@@ -23,15 +23,16 @@
 	</c:when>
 	<c:otherwise>
 		<div>
-			<fieldset style="width: 500">
+			<fieldset >
 				<legend>
 					<b>&gt;이용가능서비스&lt;</b>
 				</legend>
+				<b>${userId}</b>
 				<ul>
-					<li><a href="">내 정보</a></li>
-					<li><a href="">방명록</a></li>
-					<li><a href="">로그아웃</a></li>
-					<li><a href="">이메일 인증</a></li>
+					<!--  <li><a href="">내 정보</a></li>  -->
+					<li><a href="/board/review">리뷰 작성</a></li>
+					<li><a href="/member/logout">로그아웃</a></li>
+					
 				</ul>
 			</fieldset>
 		</div>

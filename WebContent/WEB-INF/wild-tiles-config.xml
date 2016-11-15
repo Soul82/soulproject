@@ -13,5 +13,10 @@
 		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp"/>
 	</definition>
+	
+	<definition name="board:*/*/*" extends="t:*">
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}/{3}.jsp"/>
+	</definition>
 
 </tiles-definitions>
