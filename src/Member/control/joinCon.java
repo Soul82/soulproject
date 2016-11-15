@@ -24,7 +24,7 @@ public class joinCon {
 		System.out.println(img+" / "+id+" / "+pass+" / "+mail+" / "+name+" / "+gender+" / "+birthYear+" / "+birthMonth+" / "+birthDay);
 		
 		String birth=birthYear+birthMonth+birthDay;
-		
+		int notice=0;
 		Member mem=new Member();
 			mem.setId(id);
 			mem.setPass(pass);
@@ -33,7 +33,7 @@ public class joinCon {
 			mem.setImg(img);
 			mem.setMail(mail);
 			mem.setName(name);
-		
+			mem.setNotice(notice);
 		int r=js.joinVO(mem);
 		if(r==1){
 			mv.setViewName("body:member/joinComplete");
