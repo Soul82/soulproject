@@ -18,7 +18,7 @@
 	
 	<context:component-scan base-package="Main"/>
 	<context:component-scan base-package="Member"/>
-	<context:component-scan base-package="board"/>
+	<context:component-scan base-package="Board"/>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" id="beanNameViewResolver" p:order="1"/>
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" p:order="2"/>
@@ -45,7 +45,8 @@
 		<property name="mapperLocations">
 			<list>
 				<value>/WEB-INF/mapper/member-mappers.xml</value>
-				<value>/WEB-INF/mapper/login-mappers.xml</value>
+				<value>/WEB-INF/mapper/qna-mapper.xml</value>				
+				<value>/WEB-INF/mapper/review-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
