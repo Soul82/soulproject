@@ -1,12 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<form action="/member/memUp">
-<b>ID:${data.ID}</b><br/>
-<b>사진:</b><input type="text" name="img" /><br/>
-<b>PASS:</b><input type="password"required="required" name="pass" /><br/>
-<b>MAIL:</b><input type="email" name="mail"><br/>
-<b>이름:${data.NAME}</b><br/>
-<b>성별:${data.GENDER}</b><br/>
-<b>생년월일:${data.BIRTH}</b><br/>
-<input type="submit" value="수정하기">
-</form>
+<header>
+<div id="reg" align="center">
+   <img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
+
+   <form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/memUp">
+      <h2 align="left">회원 정보 수정</h2>
+      <div align="left">
+         <p>
+            <label>사진</label> <input type="text" id="img" name="img" placeholder="사진대체" required />
+         </p>
+         <p>
+            <label>아이디</label>&nbsp;&nbsp;<b>${data.ID}</b>
+            <span id="rst"></span>                                              
+         </p>
+         <p>
+            <label>비밀번호</label> 
+            <input type="password" id="pass" name="pass" placeholder="비밀번호" required /> 
+            <input type="password" id="pass2" placeholder="비밀번호확인" disabled="disabled" required />
+         </p>
+         <span id="rst2"></span>
+         <p>
+            <label>이름</label> &nbsp;&nbsp;<b>${data.NAME}</b>
+              </p>
+         <p>
+            <label>성별</label> &nbsp;&nbsp;<b>${data.GENDER}</b>
+            
+         </p>
+         <p>
+            <label>생년월일</label>&nbsp;&nbsp;<b>${data.BIRTH}</b>
+           
+         <p>
+            <label>이메일</label>
+            <input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
+         </p>
+         <!-- 
+         <p id="accept">
+         <input id="accept_terms" name="accept_terms" type="checkbox" />
+         <label for="accept_terms">
+            <strong>
+            <a href="#" rel="external" target="_blank">서비스 이용 약관</a>, 
+            <a href="#" rel="external" target="_blank">개인 정보 수집 이용</a>에 동의</strong>합니다.
+         </label>
+         </p>
+         -->          
+      </div>
+      <p>
+         <button id="reg_new" type="submit">수정하기</button>
+      </p>
+   </form>
+
+</div>
+</header>
