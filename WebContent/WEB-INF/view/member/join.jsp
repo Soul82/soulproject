@@ -1,267 +1,138 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.boo4tstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Sansita+One" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 
+<header>
 <div id="reg" align="center">
+	<img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
 
-	<img src="/image/logo.png" style="width: 30%" />
-	<form action="/member/joinConfirm" method="post">
-		<table style="width: 50%; border: black solid 1px; border-radius: 1em;">
-			<colgroup>
-				<col style="width: 94px">
-				<col>
-			</colgroup>
-
-			<tbody>
-				<tr>
-					<th scope="row"><div class="wrap">¾ÆÀÌµğ</div></th>
-					<td>
-						<div class="wrap">
-							<div id="memberId_tr" class="wrap_input_info05 d_input_write"
-								style="width: 331px;">
-								<div class="wrap_input">
-									<input type="text" id="id" name="id" title="¾ÆÀÌµğ ÀÔ·Â ÆíÁıÃ¢"
-										placeholder="6~30ÀÚ·Î ÀÔ·Â" class="text53" style="width: 276px;">
-									<input type="text" id="img" name="img" title="¾ÆÀÌµğ ÀÔ·Â ÆíÁıÃ¢"
-										placeholder="img¹®ÀÚ·Î ÀÓ½Ã ´ëÃ¼" class="text53"
-										style="width: 276px;">
-								</div>
-								<div class="wrap_input_check">
-									<a href="#" class="btn_input_check d_input_del"
-										style="display: none;">»èÁ¦</a>
-								</div>
-							</div>
-							<p id="memberId_msg" class="txt_error03" style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><div class="wrap">ºñ¹Ğ¹øÈ£</div></th>
-					<td>
-						<div class="wrap">
-							<div id="memberPwd1_tr"
-								class="wrap_input_info04 wrap_input_pw d_input_write"
-								style="width: 331px;">
-								<div class="wrap_input">
-									<input type="password" id="pass" name="pass"
-										title="ºñ¹Ğ¹øÈ£ ÀÔ·Â ÆíÁıÃ¢" placeholder="ºñ¹Ğ¹øÈ£ ÀÔ·Â"
-										class="text53 d_input_key" style="width: 212px;"> <label
-										for="pass" class="pw_label">ºñ¹Ğ¹øÈ£ ÀÔ·Â</label>
-								</div>
-								<div class="wrap_input" style="display: none;">
-									<input type="text" id="pass2" title="ºñ¹Ğ¹øÈ£ ÀÔ·Â ÆíÁıÃ¢"
-										placeholder="ºñ¹Ğ¹øÈ£ ÀÔ·Â" class="text53 d_input_key"
-										style="width: 212px;">
-								</div>
-								<div class="wrap_input_check">
-									<a href="#" class="btn_input_check d_input_del"
-										style="display: none;">»èÁ¦</a> <a href="#"
-										class="btn_pw_view d_input_pw" style="display: block;"><span>º¸±â</span></a>
-									<a href="#" class="btn_pw_hide d_input_pw"
-										style="display: none;"><span>¼û±è</span></a>
-								</div>
-							</div>
-							<p id="memberPwd1_usemsg" class="txt_input_info">8ÀÚ ~ 20ÀÚ,
-								¿µ¹®, ¼ıÀÚ, Æ¯¼ö¹®ÀÚ »ç¿ë</p>
-							<p id="memberPwd1_level" class="txt_level_pwd high"
-								style="display: none">
-								¾ÈÀüµµ : <span id="memberPwd1_levelmsg" class="level">³ôÀ½</span> <span
-									id="memberPwd1_successmsg">¿¹ÃøÀÌ ¾î·Á¿î °­·ÂÇÑ ºñ¹Ğ¹øÈ£ ÀÔ´Ï´Ù.</span>
-							</p>
-							<p id="memberPwd1_msg" class="txt_error03" style="display: none;"></p>
-							<div id="memberPwd2_tr"
-								class="wrap_input_info04 wrap_input_pw d_input_write mt12"
-								style="width: 331px;">
-								<div class="wrap_input" style="display: block;">
-									<input type="password" id="pass2" name="memberPwd2"
-										title="ºñ¹Ğ¹øÈ£ È®ÀÎ ÆíÁıÃ¢" placeholder="ºñ¹Ğ¹øÈ£ È®ÀÎ"
-										class="text53 d_input_key" style="width: 212px;"> <label
-										for="pass2" class="pw_label">ºñ¹Ğ¹øÈ£ È®ÀÎ</label>
-								</div>
-								<div class="wrap_input" style="display: none;">
-									<input type="text" id="memberPwd22" title="ºñ¹Ğ¹øÈ£ ÀÔ·Â ÆíÁıÃ¢"
-										placeholder="ºñ¹Ğ¹øÈ£ È®ÀÎ" class="text53 d_input_key"
-										style="width: 212px;">
-								</div>
-								<div class="wrap_input_check">
-									<a href="#" class="btn_input_check d_input_del"
-										style="display: none;">»èÁ¦</a> <a href="#"
-										class="btn_pw_view d_input_pw" style="display: block;"><span>º¸±â</span></a>
-									<a href="#" class="btn_pw_hide d_input_pw"
-										style="display: none;"><span>¼û±è</span></a>
-								</div>
-							</div>
-							<p id="memberPwd2_msg" class="txt_error03" style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><div class="wrap">ÀÌ¸§</div></th>
-					<td>
-						<div class="wrap">
-							<div id="memberNick_tr" class="wrap_input_info04 d_input_write"
-								style="width: 331px;">
-								<div class="wrap_input">
-									<input type="text" id="img" name="name" title="´Ğ³×ÀÓ ÀÔ·Â ÆíÁıÃ¢"
-										placeholder="ÇÑ±Û, ¿µ¹® 2~15ÀÚ" class="text53"
-										style="width: 276px;">
-								</div>
-								<div class="wrap_input_check">
-									<a href="#" class="btn_input_check d_input_del"
-										style="display: none;">»èÁ¦</a>
-								</div>
-							</div>
-							<p id="memberNick_msg" class="txt_error03" style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-				<tr class="tr_type01">
-					<th scope="row"><div class="wrap">¼ºº°</div></th>
-					<td>
-						<div class="wrap">
-							<div class="box_select_gender">
-								<ul class="wrap_list_radio">
-									<li class="d_input_check">
-										<div class="box_check_radio">
-											<input type="radio" name="gender" id="genderM"
-												class="input_check"> <label for="genderM"
-												class="label_check"><span class="icon"></span>³²ÀÚ</label>
-										</div>
-									</li>
-									<li class="d_input_check">
-										<div class="box_check_radio">
-											<input type="radio" name="gender" id="genderW"
-												class="input_check"> <label for="genderW"
-												class="label_check"><span class="icon"></span>¿©ÀÚ</label>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<p id="memberGender_msg" class="txt_error03"
-								style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><div class="wrap">»ı³â¿ùÀÏ</div></th>
-					<td>
-						<div class="wrap">
-							<div class="box_birth_input">
-								<div id="birthYear_tr" class="wrap_input_info05 d_input_write"
-									style="width: 129px;">
-									<div class="wrap_input">
-										<input type="text" id="birthYear" name="birthYear"
-											title="»ı³â¿ùÀÏ ³â ÀÔ·Â ÆíÁıÃ¢" placeholder="" class="text53"
-											style="width: 80px;" maxlength="4"><span class="txt">³â</span>
-									</div>
-								</div>
-
-								<div id="birthMonth_tr" class="wrap_input_info05 d_input_write"
-									style="width: 81px;">
-									<div class="wrap_input">
-										<input type="text" id="birthMonth" name="birthMonth"
-											title="»ı³â¿ùÀÏ ¿ù ÀÔ·Â ÆíÁıÃ¢" placeholder="" class="text53"
-											style="width: 35px;" maxlength="2"><span class="txt">¿ù</span>
-									</div>
-								</div>
-
-								<div id="birthDay_tr"
-									class="wrap_input_info05 d_input_write mr0"
-									style="width: 81px;">
-									<div class="wrap_input">
-										<input type="text" id="birthDay" name="birthDay"
-											title="»ı³â¿ùÀÏ ÀÏ ÀÔ·Â ÆíÁıÃ¢" placeholder="" class="text53"
-											style="width: 35px;" maxlength="2"><span class="txt">ÀÏ</span>
-									</div>
-								</div>
-							</div>
-							<p id="parentAgree_msg" class="txt_input_info02"
-								style="display: none;">¸¸ 14¼¼ ¹Ì¸¸ÀÎ °æ¿ì º¸È£ÀÚ(¹ıÁ¤´ë¸®ÀÎ)µ¿ÀÇ°¡ ÇÊ¿äÇÕ´Ï´Ù.</p>
-							<p id="birth_msg" class="txt_error03" style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><div class="wrap">ÀÌ¸ŞÀÏ</div></th>
-					<td>
-						<div class="wrap">
-
-
-
-							<div class="box_email_input">
-								<div id="email_tr" class="wrap_input_info04 d_input_write"
-									style="width: 169px">
-									<div class="wrap_input">
-										<input id="mail" name="mail" type="text" title="ÀÌ¸ŞÀÏ ÀÔ·Â ÆíÁıÃ¢"
-											placeholder="ÀÌ¸ŞÀÏ ÀÔ·Â" class="text53" style="width: 116px;">
-									</div>
-									<div class="wrap_input_check">
-										<a href="#" class="btn_input_check d_input_del"
-											style="display: none;">»èÁ¦</a>
-									</div>
-								</div>
-								<!--select box-->
-								<div id="mailDomain_tr" class="select_wrap">
-									<select id="mailDomain" name="mailDomain" title="¿¬¶ôÃ³ Á¤º¸ ¼±ÅÃ"
-										style="width: 95px; height: 31px; display: none;"
-										class="d_selectbox2" data-class="select_type04"
-										data-type="email">
-										<option value="" selected>¼±ÅÃ</option>
-
-										<option value="nate.com">nate.com</option>
-
-										<option value="naver.com">naver.com</option>
-
-										<option value="daum.net">daum.net</option>
-
-										<option value="gmail.com">gmail.com</option>
-
-										<option value="hanmail.net">hanmail.net</option>
-
-										<option value="yahoo.com">yahoo.com</option>
-
-										<option value="lycos.co.kr">lycos.co.kr</option>
-
-										<option value="cyworld.com">cyworld.com</option>
-
-										<option value="paran.com">paran.com</option>
-
-										<option value="empal.com">empal.com</option>
-
-										<option value="dreamwiz.com">dreamwiz.com</option>
-
-										<option value="korea.com">korea.com</option>
-
-										<option value="hanmir.com">hanmir.com</option>
-
-										<option value="hitel.net">hitel.net</option>
-
-										<option value="freechal.com">freechal.com</option>
-
-									</select>
-
-								</div>
-								<!--//select box-->
-							</div>
-
-
-							<p class="txt_input_info">Áß¿äÇÑ ¾Ë¸²ÀÌ ÀÌ¸ŞÀÏÀ» ÅëÇØ ¾È³»µË´Ï´Ù.</p>
-							<p id="email_msg" class="txt_error03" style="display: none;"></p>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<div align="center">
-			<input type="submit" value="È¸¿ø°¡ÀÔ" />
+	<form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/joinConfirm">
+		<h2 align="left">Registration</h2>
+		<div align="left">
+			<p>
+				<label>ì‚¬ì§„</label> <input type="text" id="img" name="img" placeholder="ì‚¬ì§„ëŒ€ì²´" required />
+			</p>
+			<p>
+				<label>ì•„ì´ë””</label> <input type="text" id="id" name="id" placeholder="6~20ìë¡œ ì…ë ¥" required />
+				<span id="rst"></span>                                              
+			</p>
+			<p>
+				<label>ë¹„ë°€ë²ˆí˜¸</label> 
+				<input type="password" id="pass" name="pass" placeholder="ë¹„ë°€ë²ˆí˜¸" required /> 
+				<input type="password" id="pass2" placeholder="ë¹„ë°€ë²ˆí˜¸í™•ì¸" disabled="disabled" required />
+			</p>
+			<span id="rst2"></span>
+			<p>
+				<label>ì´ë¦„</label> 
+				<input type="text" id="name" name="name" placeholder="í•œê¸€,ì˜ë¬¸ 2~15ì" min="2" maxlength="15" required />
+			</p>
+			<p>
+				<label>ì„±ë³„</label> 
+				<input type="radio" name="gender" id="genderM" class="input_check"> 
+				<label for="genderM" class="label_check">ë‚¨ì</label> 
+				<input type="radio" name="gender" id="genderW" class="input_check">
+				<label for="genderW" class="label_check">ì—¬ì</label>
+			</p>
+			<p>
+				<label>ìƒë…„ì›”ì¼</label>
+				<input type="text" id="birthYear" name="birthYear" style="width: 80px;" maxlength="4"><span>ë…„</span> 
+				<input type="text" id="birthMonth" name="birthMonth" style="width: 50px;" maxlength="2"><span>ì›”</span>
+				<input type="text" id="birthDay" name="birthDay" style="width: 50px;" maxlength="2"><span>ì¼</span>
+			</p>
+			<p>
+				<label>ì´ë©”ì¼</label>
+				<input type="email" id="mail" name="mail" placeholder="E-mailì…ë ¥" required />
+				<input type="button" id="confirm" value="ì¸ì¦ë²ˆí˜¸ë°›ê¸°"/>
+			</p>
+			<!-- 
+			<p id="accept">
+			<input id="accept_terms" name="accept_terms" type="checkbox" />
+			<label for="accept_terms">
+				<strong>
+				<a href="#" rel="external" target="_blank">ì„œë¹„ìŠ¤ ì´ìš© ì•½ê´€</a>, 
+				<a href="#" rel="external" target="_blank">ê°œì¸ ì •ë³´ ìˆ˜ì§‘ ì´ìš©</a>ì— ë™ì˜</strong>í•©ë‹ˆë‹¤.
+			</label>
+			</p>
+			-->			 
 		</div>
+		<p>
+			<button id="reg_new" type="submit">íšŒì›ê°€ì…</button>
+		</p>
 	</form>
 
 </div>
+</header>
+
+<script type="text/javascript">
+
+	document.getElementById("id").addEventListener("blur", function(){
+		var v =document.getElementById("id").value;
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", "/member/joinAjax.it?id="+v, true);
+		xhr.onreadystatechange=function(){
+			if(xhr.status==200&xhr.readyState==4){
+				var t =xhr.responseText;
+				var html;
+				if(t=="TRUE") {
+					html = "<b style='color:red;'>ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤</b><br/>";
+				}else if(v.length < 6){
+					html = "<b style='color:red;'>ì•„ì´ë””ë¥¼ 6ì ì´ìƒ ì…ë ¥í•´ì£¼ì„¸ìš”</b><br/>";
+				}else {
+					html = "<b style='color:green;'>ë©‹ì§„ ì•„ì´ë””ì…ë‹ˆë‹¤</b><br/>";
+				}
+				document.getElementById("rst").innerHTML = html;
+			}
+				
+		};
+		xhr.send();
+	});
+	
+	document.getElementById("pass").addEventListener("blur", function(){
+			var pass = document.getElementById("pass").value;
+			var pass2 = document.getElementById("pass2").value;
+			var chk_num = pass.search(/[0-9]/g);
+			var chk_eng = pass.search(/[a-z]/ig);
+			
+			console.log(pass2.length);
+			
+	 			if(pass.length < 8){
+	 				html = "<b style='color:red; padding-left : 100px;'>ë¹„ë°€ë²ˆí˜¸ë¥¼ 8~20ìë¦¬ë¡œ ì„¤ì •í•´ì£¼ì„¸ìš”.</b><br/><br/>";
+	 			}else {
+	 				if(chk_num<0 || chk_eng<0){
+	 					html = "<b style='color:red; padding-left : 100px;'>ë¹„ë°€ë²ˆí˜¸ë¥¼  ì˜ë¬¸, ìˆ«ì ì¡°í•©ìœ¼ë¡œ ì„¤ì •í•´ì£¼ì„¸ìš”.</b><br/><br/>";
+	 				}else if(/(\w)\1\1\1/.test(pass)){
+	 					html = "<b style='color:red; padding-left : 100px;'>ë¹„ë°€ë²ˆí˜¸ì— ê°™ì€ ë¬¸ìë¥¼ 4ë²ˆì´ìƒ ì‚¬ìš©í•˜ì‹¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.</b><br/><br/>";
+	 				}else{
+	 					html = "";
+	 					document.getElementById("rst2").innerHTML = html;
+	 					document.getElementById("pass2").disabled = false;
+	 				}
+				}
+			document.getElementById("rst2").innerHTML = html;		
+		});
+	
+	
+	document.getElementById("pass2").addEventListener("blur", function(){
+		var pass = document.getElementById("pass").value;
+		var pass2 = document.getElementById("pass2").value;
+			if(pass2.length < 1){
+				document.getElementById("pass2").disabled = true;
+			}else if(pass2==pass){
+				html = "<b style='color:green; padding-left : 100px;'>ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜</b><br/><br/>";
+			}else {
+				html = "<b style='color:red; padding-left : 100px;'>ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜</b><br/><br/>";
+			}					
+		document.getElementById("rst2").innerHTML = html;
+	});
+	
+	document.getElementById("confirm"),addEventListener("click", function(){
+		
+	});
+
+
+</script>
+
+
+</html>

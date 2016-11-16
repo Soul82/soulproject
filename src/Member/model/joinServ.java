@@ -1,5 +1,7 @@
 package Member.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +33,16 @@ public class joinServ {
 		}
 		return r;
 	}
+	
+	public boolean exist(String id){
+		SqlSession sql = fac.openSession();
+		List li = sql.selectList("member.logcheck", id);
+		sql.close();
+		if(li.size()==1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }

@@ -13,13 +13,18 @@ import Member.model.logServ;
 
 @Controller
 public class logCon {
-	
 	@Autowired
 	logServ ls;
+	
 	@RequestMapping("/member/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/index";
+	}
+	
+	@RequestMapping("/member/logview")
+	public String loginView() {
+		return "body:member/login";
 	}
 	
 	@RequestMapping("/member/login")

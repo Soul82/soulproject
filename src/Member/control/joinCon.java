@@ -44,4 +44,13 @@ public class joinCon {
 		
 		return mv;
 	}
+	
+	@RequestMapping("/member/joinAjax.it")
+	public ModelAndView existCheck(String id){
+		boolean b = js.exist(id);
+		ModelAndView mav = new ModelAndView("/member/checkResult");
+		mav.addObject("rst", b);
+		
+		return mav;
+	}
 }
