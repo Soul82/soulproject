@@ -4,10 +4,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
 	<!-- review 입력 -->
-	<insert id="write" parameterType="java.util.HashMap" >
-		insert into reviewboard values(#{id}, #{musictitle}, #{comments}, #{grade},sysdate )
+	<insert id="write" parameterType="java.util.HashMap">
+		insert into
+		reviewboard values(#{id}, #{musictitle}, #{comments},
+		#{grade},sysdate, reviewboard_seq.nextval )
 	</insert>
-	<select id="getall" resultType="java.util.HashMap" parameterType="java.lang.String">
-		select * from reviewboard  order by musictitle desc
+	<select id="getall" resultType="java.util.HashMap">
+		select * from reviewboard order by num desc
 	</select>
 </mapper>

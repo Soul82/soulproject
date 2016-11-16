@@ -9,7 +9,7 @@ public class Member {
 	String pass;
 	String mail;
 	String name;
-	String gender;
+	String gender; 
 	String birth;
 	int notice;
 	

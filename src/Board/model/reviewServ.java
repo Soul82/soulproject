@@ -1,6 +1,7 @@
 package Board.model;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,5 +19,13 @@ public class reviewServ {
 			return true;
 		else
 			return false;
+	}
+	public List readAll() {
+		SqlSession sql = fac.openSession();
+		
+		List<HashMap> list=sql.selectList("review.getall");
+		 
+		sql.close();
+		return list;
 	}
 }
