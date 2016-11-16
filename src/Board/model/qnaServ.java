@@ -38,7 +38,6 @@ public class qnaServ {
 		List li=ss.selectList("qnaboard.getList");
 		ss.close();
 		return li;
-		
 	}
 	
 	public qnaVO clickQna(int num){
@@ -78,4 +77,12 @@ public class qnaServ {
 		}
 			return div;
 	}
+	
+	public List searching(String search){
+		SqlSession ss=fac.openSession();
+		List li=ss.selectList("qnaboard.search","%"+search+"%");
+		ss.close();
+		return li;
+	}
+	
 }

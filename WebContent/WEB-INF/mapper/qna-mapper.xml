@@ -35,4 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from qnaboard
 	</select>
 	
+	<select id="search" parameterType="java.lang.String" resultType="Board.pojo.qnaVO">
+		select * from qnaboard where content like #{search}
+	</select>
+	
 </mapper>

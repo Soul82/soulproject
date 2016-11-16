@@ -71,4 +71,12 @@ public class qnaCon {
 		}
 	}
 	
+	@RequestMapping("/qna/search")
+	public ModelAndView qnaSearch(String search){
+		ModelAndView mv=new ModelAndView();
+		List li=qs.searching(search);
+		mv.addObject("search",li);
+		mv.setViewName("board:board/qnaboard/qnalist_search");
+		return mv;
+	}
 }
