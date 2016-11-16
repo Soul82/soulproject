@@ -31,6 +31,7 @@
 				<ul>
 					<!--  <li><a href="">내 정보</a></li>  -->
 					<li><a href="/board/review">리뷰 작성</a></li>
+					<li><a href="/member/modifyPage">내정보수정</a></li>
 					<li><a href="/member/logout">로그아웃</a></li>
 					
 				</ul>
