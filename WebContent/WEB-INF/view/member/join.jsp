@@ -7,11 +7,12 @@
 <div id="reg" align="center">
 	<img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
 
-	<form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/joinConfirm">
+	<form id="reg_form" style="width: 700px; border: black solid 1px;
+	 border-radius: 1em" action="/member/joinConfirm" method="post" enctype="multipart/form-data">
 		<h2 align="left">Registration</h2>
 		<div align="left">
 			<p>
-				<label>사진</label> <input type="text" id="img" name="img" placeholder="사진대체" required />
+				<label>사진</label> <input type="file" id="img" name="img" placeholder="사진" required /><!-- onselect="javascript:checkFile()" -->
 			</p>
 			<p>
 				<label>아이디</label> <input type="text" id="id" name="id" placeholder="6~20자로 입력" required />
@@ -149,9 +150,25 @@
 		};
 		xhr.send();
 	});
+	
+	
 
 
 </script>
+<!-- 
+<script>
+function checkFile() {
+	var fm=document.fileForm;
+	var Fnm=fm.uploadFile;
+	var ext=fnm.value;
+	if(!(ext.substr(ext.length-3)=='jsp'||ext.substr(ext.length-3)=='jpg')){
+		alert("jsp/jpg 파일만 올릴수있습니다.");
+		return false;
+	}
+	fm.submit();
 
+}
+</script>
+ -->
 
 </html>

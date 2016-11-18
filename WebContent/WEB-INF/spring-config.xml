@@ -43,6 +43,9 @@
         <property name="password" value="oracle"/>
 	</bean>
 	
+	
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"></bean>
+	
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factory">
 		<property name="dataSource" ref="ds"/>
 		<property name="mapperLocations">
