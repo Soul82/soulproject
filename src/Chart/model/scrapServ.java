@@ -26,11 +26,20 @@ public class scrapServ {
 		source.fullSequentialParse();
 		// ";\"track_title=\""
 		String sour = source.toString();
-		System.out.println(sour);
+//		System.out.println(sour);
 		
 		String [] ar;
+		ar=sour.split("value=\"30448832\" name=\"check\" disc_id=\"1\" title=\"");
+		String []ao=ar[1].split("\"");
+//		System.out.println(ar[0]);
 		
-		ar=sour.split("name=\"\check\"\ disc_id=\"\1\"\ title=\"\");
-		
+		//=====테스트하기======
+//		String ae="<td class=\"check\"><input type=\"checkbox\" value=\"30448832\" name=\"check\" disc_id=\"1\" title=\"가끔 (feat. Crush, 기리보이) \"></td>";
+//		String [] aear;
+//		aear=ae.split("name=\"check\" disc_id=\"1\" title=\"");
+//		System.out.println(aear[0]);
+//		System.out.println(aear[1]);
+//		String []ao=aear[1].split("\"");
+//		System.out.println(ao[0]);
 	}
 }
