@@ -19,8 +19,9 @@
 	<context:component-scan base-package="Main"/>
 	<context:component-scan base-package="Member"/>
 	<context:component-scan base-package="Board"/>
-	<context:component-scan base-package="Chat"/>
 	<context:component-scan base-package="Streaming"/>
+	<context:component-scan base-package="Location"/>
+	<context:component-scan base-package="Chart"/>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" id="beanNameViewResolver" p:order="1"/>
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" p:order="2"/>

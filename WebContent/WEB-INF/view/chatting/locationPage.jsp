@@ -1,44 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<p id="demo">Click the button to get your position.</p>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+    </style>
 
-<button onclick="getLocation()">Try It</button>
 
-<div id="mapholder"></div>
-<script>
-button.onclick = function() {
-  var startPos;
-  var element = document.getElementById("nudge");
 
-  var showNudgeBanner = function() {
-    nudge.style.display = "block";
-  };
+    <div id="map"></div>
+    <script>
 
-  var hideNudgeBanner = function() {
-    nudge.style.display = "none";
-  };
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 14
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
 
-  var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
 
-  var geoSuccess = function(position) {
-    hideNudgeBanner();
-    // We have the location, don't display banner
-    clearTimeout(nudgeTimeoutId);
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
 
-    // Do magic with location
-    startPos = position;
-    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-  };
-  var geoError = function(error) {
-    switch(error.code) {
-      case error.TIMEOUT:
-        // The user didn't accept the callout
-        showNudgeBanner();
-        break;
-  };
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
 
-  navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-};
+    </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdoV8JbmS3MXtv5yO4WgCNRTHVwky5F8A&signed_in=true&callback=initMap" async defer>
 </script>
+ 

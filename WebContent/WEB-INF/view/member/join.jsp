@@ -43,7 +43,7 @@
 			<p>
 				<label>이메일</label>
 				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
-				<input type="button" id="confirm" value="인증번호받기"/>
+				<button id="confirm">인증</button>
 			</p>
 			<!-- 
 			<p id="accept">
@@ -127,8 +127,27 @@
 		document.getElementById("rst2").innerHTML = html;
 	});
 	
+	// 이메일 인증
 	document.getElementById("confirm"),addEventListener("click", function(){
 		
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", "/member/joinAjax.it?id="+v, true);
+		xhr.onreadystatechange=function(){
+			if(xhr.status==200&xhr.readyState==4){
+				var t =xhr.responseText;
+				var html;
+				if(t=="TRUE") {
+					html = "<b style='color:red;'>사용중인 아이디입니다</b><br/>";
+				}else if(v.length < 6){
+					html = "<b style='color:red;'>아이디를 6자 이상 입력해주세요</b><br/>";
+				}else {
+					html = "<b style='color:green;'>멋진 아이디입니다</b><br/>";
+				}
+				document.getElementById("rst").innerHTML = html;
+			}
+				
+		};
+		xhr.send();
 	});
 
 
