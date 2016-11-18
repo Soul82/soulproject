@@ -21,11 +21,11 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="page-scroll" href="#about">About</a></li>
+				<li><a class="page-scroll" href="/">About</a></li>
 				<li><a class="page-scroll" href="#music">Music</a></li>
 				<li><a class="page-scroll" href="#musicchart">MusicChart</a></li>
 				<li><a class="page-scroll" href="#chat">Chat</a></li>
-				<li><a href="/member/joinPage">Join</a></li>
+				<li><a class="page-scroll" href="/member/joinPage">Join</a></li>
 				<li><a href="/member/logview">Login</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
