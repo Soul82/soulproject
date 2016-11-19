@@ -9,6 +9,8 @@
 <div id="view" style="width:500; height: 300; border:1 solid;"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK-gDA5ufIotTNiMa7PgjWeHcKJpJj-Es&callback=initMap"  async defer></script>
+<script src="//content.jwplatform.com/players/9QMDyRrF-c66oCBjK.js"></script>
+
 
 <script>
 function geoFindMe() {
