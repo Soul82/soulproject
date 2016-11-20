@@ -4,23 +4,22 @@
 
 
 <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Soul Music</h1>
-                <hr>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Play music</a>
-            </div>
-        </div>
+	<div class="header-content">
+	    <div class="header-content-inner">
+	        <h1 id="homeHeading">Soul Music</h1>
+	        <hr>
+	        <a href="soulPlayer.jsp" class="btn btn-primary btn-xl page-scroll">Play music</a>
+	    </div>
+	</div>
 </header>
 
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
+                    <h2 class="section-heading">MusicPlayer!!</h2>
                     <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                    	
                 </div>
             </div>
         </div>
@@ -81,6 +80,7 @@
 					<table class="table">
 							<thead>
 								<tr>
+									<th>select</th>
 									<th>rank</th>
 									<th>album</th>
 									<th>title</th>
@@ -92,6 +92,7 @@
 							<tbody>
 								<c:forEach var="bugs" items="${bugs }" varStatus="status">
 								<tr>
+									<td><input type="checkbox" name="chk"></td>
 									<td>${status.count }</td>
 									<td><img src="${bugs.album }"/></td>
 									<td>${bugs.title }</td>

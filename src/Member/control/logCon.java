@@ -28,9 +28,7 @@ public class logCon {
 	}
 	
 	@RequestMapping("/member/login")
-//	public ModelAndView proceed(HttpSession session, @RequestParam(name="id")String id, String pass){
-	public ModelAndView proceed(HttpSession session, String id, String pass){
-		
+	public ModelAndView proceed(HttpSession session, @RequestParam(name="id")String id, String pass){
 		ModelAndView mav = new ModelAndView();
 		System.out.println(id+"@@"+ pass);
 		int rst = ls.logCheck(id, pass);

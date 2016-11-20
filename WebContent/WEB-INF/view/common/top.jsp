@@ -19,6 +19,7 @@
 							class="fa fa-bars"></i>
 					</button>
 					<a class="navbar-brand page-scroll" href="/index">Soul 82</a>
+					
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					

@@ -19,7 +19,7 @@ public class mainCon {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
 			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
-			String mnetSite = "http://www.mnet.com/chart/top100/";
+			String mnetSite = "http://www.mnet.com/chart/TOP100/20161118";
 
 			// bugs
 			Source bugSource = new Source(new URL(bugsStie));
@@ -73,9 +73,6 @@ public class mainCon {
 				map.put("album", album[0]);
 				mnet.add(map);
 			}
-			// System.out.println("제목 ==>"+mnet.get(0).get("title"));
-			// System.out.println("아티스트 ==>"+mnet.get(0).get("artist"));
-			// System.out.println("앨범 ==>"+mnet.get(0).get("album"));
 
 			mv.addObject("bugs", bugs);
 			mv.addObject("mnet", mnet);
@@ -85,5 +82,12 @@ public class mainCon {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	@RequestMapping("/soulPlayer")
+	public ModelAndView soulPlayer(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("soulPlayer");
+		return mv;
 	}
 }
