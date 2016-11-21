@@ -19,7 +19,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">MusicPlayer!!</h2>
                     <hr class="light">
-<%--                    <jsp:include page="/soulPlayer.jsp" flush="true"/> --%>
+                   <jsp:include page="/soulPlayer.jsp" flush="true"/>
                 </div>
             </div>
         </div>

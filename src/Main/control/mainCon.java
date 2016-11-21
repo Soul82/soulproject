@@ -48,7 +48,7 @@ public class mainCon {
 				map.put("album", "http://image.bugsm.co.kr/album/images/" + album[0]);
 				bugs.add(map);
 			}
-
+			
 			// Mnet
 			Source mnetSource = new Source(new URL(mnetSite));
 			mnetSource.getAllTags();
