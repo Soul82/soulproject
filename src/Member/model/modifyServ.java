@@ -35,6 +35,13 @@ public class modifyServ {
 		sql.close();
 		return r;
 	}
+	
+	public HashMap imgGet(String id){
+		HashMap map=new HashMap();
+		SqlSession sql = fac.openSession();
+		map=sql.selectOne("member.imgget",id);
+		return map;
+	}
 
 	
 }

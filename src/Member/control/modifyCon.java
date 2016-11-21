@@ -19,6 +19,8 @@ public class modifyCon {
 	modifyServ ms;
 	@Autowired
 	logServ ls;
+
+	
 	@RequestMapping("/member/modifyPage")
 	public ModelAndView modifyPage(HttpSession session) {
 		ModelAndView mav= new ModelAndView();
@@ -35,11 +37,14 @@ public class modifyCon {
 		String id=(String)session.getAttribute("userId");
 		int rst = ls.logCheck(id, pass);
 		mav.setViewName("body:member/modify");
+		
 		if(rst==1) {
 			HashMap map=new HashMap();
+			HashMap map2=new HashMap();
 			map =ms.idData(id);
 			mav.addObject("data",map );
-			
+			map2=ms.imgGet(id);
+			mav.addObject("img",map2 );
 			mav.setViewName("body:member/modifyList");
 		}
 		return mav;

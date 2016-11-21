@@ -4,11 +4,14 @@
 <div id="reg" align="center">
    <img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
 
-   <form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/memUp">
+  <form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/memUp">
       <h2 align="left">회원 정보 수정</h2>
       <div align="left">
          <p>
-            <label>사진</label> <input type="text" id="img" name="img" placeholder="사진대체" required />
+         
+            <label>사진</label>
+            <img src="/${img.IMGNAME}" width="30" height="30"/>
+            
          </p>
          <p>
             <label>아이디</label>&nbsp;&nbsp;<b>${data.ID}</b>
