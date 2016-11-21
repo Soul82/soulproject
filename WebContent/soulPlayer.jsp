@@ -1,38 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-	
-	
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jPlayer/lib/jquery.min.js"></script>
 <script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
 
-	$("#jquery_jplayer_1").jPlayer({
-		ready: function (event) {
-			$(this).jPlayer("setMedia", {
-				title: "SoulMusic",
-// 				m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/Park+Hyo+Shin+(%EB%B0%95%ED%9A%A8%EC%8B%A0)+-+Breath+(%EC%88%A8).mp3",
-// 				m4a: "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F287320848&show_artwork=true",
-// 				webma: "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F287320848&show_artwork=true",
-// 				fla: "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F287320848&show_artwork=true",
-				wav: "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F287320848&show_artwork=true"						
-						
-			});
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		{
+			title: "SoulMusic",
+			m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/Park+Hyo+Shin+(%EB%B0%95%ED%9A%A8%EC%8B%A0)+-+Breath+(%EC%88%A8).mp3",
 		},
-		swfPath: "../../dist/jplayer",
-		supplied: "m4a, oga",
+		{
+			title:"jung-in",
+			m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/%EC%98%A4%EB%A5%B4%EB%A7%89%EA%B8%B8.mp3"
+		},
+		{
+			title:"Cyber Sonnet",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+		},
+	], {
+		swfPath: "jPlayer/dist/jplayer",
+		supplied: "oga, mp3, m4a",
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
 		smoothPlayBar: true,
-		keyEnabled: true,
-		remainingDuration: true,
-		toggleDuration: true
+		keyEnabled: true
 	});
 });
 //]]>
@@ -41,10 +44,12 @@ $(document).ready(function(){
 <body>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-	<div class="jp-type-single">
+	<div class="jp-type-playlist">
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
+				<button class="jp-previous" role="button" tabindex="0">previous</button>
 				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-next" role="button" tabindex="0">next</button>
 				<button class="jp-stop" role="button" tabindex="0">stop</button>
 			</div>
 			<div class="jp-progress">
@@ -62,13 +67,16 @@ $(document).ready(function(){
 			<div class="jp-time-holder">
 				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
 				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-				<div class="jp-toggles">
-					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
-				</div>
+			</div>
+			<div class="jp-toggles">
+				<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
 			</div>
 		</div>
-		<div class="jp-details">
-			<div class="jp-title" aria-label="title">&nbsp;</div>
+		<div class="jp-playlist">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
 		</div>
 		<div class="jp-no-solution">
 			<span>Update Required</span>
@@ -77,3 +85,5 @@ $(document).ready(function(){
 	</div>
 </div>
 </body>
+
+</html>

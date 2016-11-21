@@ -19,7 +19,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">MusicPlayer!!</h2>
                     <hr class="light">
-                    	
+<%--                    <jsp:include page="/soulPlayer.jsp" flush="true"/> --%>
                 </div>
             </div>
         </div>
@@ -29,42 +29,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">노래듣기</h2>
                     <hr class="primary">
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
-                    </div>
-                </div>
-            </div>
+        <div class="container" align="center">
+             <c:import url="/soulPlayer"/>
         </div>
     </section>
 
@@ -76,6 +47,11 @@
            
 			<div class="container">
 				<h2>Soul Music Chart</h2>
+					<tr>
+						<th>  <button type="button" class="btn btn-success">전체 선택</button></th>
+						<th>  <button type="button" class="btn btn-success">선택 듣기</button></th>
+						<th>  <button type="button" class="btn btn-success">선택 담기</button></th>
+					</tr>
 				<div class="table-responsive">
 					<table class="table">
 							<thead>
@@ -97,8 +73,8 @@
 									<td><img src="${bugs.album }"/></td>
 									<td>${bugs.title }</td>
 									<td>${bugs.artist }</td>
-									<td><img src="like.jpg" width="30" height="30" /></td>
-									<td><img src="mv.png" width="30" height="30" /></td>
+									<td><img src="/img/like.jpg" width="30" height="30" /></td>
+									<td><img src="/img/mv.png" width="30" height="30" /></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -115,8 +91,8 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+                <h2>Welcome to Music Soul!</h2>
+                <a href="#" class="btn btn-default btn-xl sr-button">chart!</a>
             </div>
         </div>
     </aside>
