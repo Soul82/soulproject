@@ -23,7 +23,7 @@
 				<input type="password" id="pass" name="pass" placeholder="비밀번호" required /> 
 				<input type="password" id="pass2" placeholder="비밀번호확인" disabled="disabled" required />
 			</p>
-			<span id="rst2"></span>
+				<span id="rst2"></span>
 			<p>
 				<label>이름</label> 
 				<input type="text" id="name" name="name" placeholder="한글,영문 2~15자" min="2" maxlength="15" required />
@@ -44,7 +44,7 @@
 			<p>
 				<label>이메일</label>
 				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
-				<button id="confirm">인증</button>
+				<button id="confirm" onclick="authpop()" type="button">인증번호받기</button>
 			</p>
 			<!-- 
 			<p id="accept">
@@ -129,27 +129,11 @@
 	});
 	
 	// 이메일 인증
-	document.getElementById("confirm"),addEventListener("click", function(){
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("get", "/member/joinAjax.it?id="+v, true);
-		xhr.onreadystatechange=function(){
-			if(xhr.status==200&xhr.readyState==4){
-				var t =xhr.responseText;
-				var html;
-				if(t=="TRUE") {
-					html = "<b style='color:red;'>사용중인 아이디입니다</b><br/>";
-				}else if(v.length < 6){
-					html = "<b style='color:red;'>아이디를 6자 이상 입력해주세요</b><br/>";
-				}else {
-					html = "<b style='color:green;'>멋진 아이디입니다</b><br/>";
-				}
-				document.getElementById("rst").innerHTML = html;
-			}
-				
-		};
-		xhr.send();
-	});
+	function authpop(){
+		var mail = document.getElementById("mail").value;
+		var url = "/member/mailConfirm?authmail="+mail;
+		window.open(url, "authmail", "heigth=100; width=150");
+	}
 	
 	
 
