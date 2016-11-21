@@ -46,16 +46,6 @@
 				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
 				<button id="confirm" onclick="authpop()" type="button">인증번호받기</button>
 			</p>
-			<!-- 
-			<p id="accept">
-			<input id="accept_terms" name="accept_terms" type="checkbox" />
-			<label for="accept_terms">
-				<strong>
-				<a href="#" rel="external" target="_blank">서비스 이용 약관</a>, 
-				<a href="#" rel="external" target="_blank">개인 정보 수집 이용</a>에 동의</strong>합니다.
-			</label>
-			</p>
-			-->			 
 		</div>
 		<p>
 			<button id="reg_new" type="submit">회원가입</button>
@@ -65,7 +55,7 @@
 </div>
 </header>
 
-<script type="text/javascript">
+<script>
 
 	document.getElementById("id").addEventListener("blur", function(){
 		var v =document.getElementById("id").value;
@@ -96,7 +86,6 @@
 			var chk_num = pass.search(/[0-9]/g);
 			var chk_eng = pass.search(/[a-z]/ig);
 			
-			console.log(pass2.length);
 			
 	 			if(pass.length < 8){
 	 				html = "<b style='color:red; padding-left : 100px;'>비밀번호를 8~20자리로 설정해주세요.</b><br/><br/>";
