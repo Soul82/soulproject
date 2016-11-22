@@ -53,6 +53,7 @@
 				<value>/WEB-INF/mapper/member-mappers.xml</value>
 				<value>/WEB-INF/mapper/qna-mapper.xml</value>
 				<value>/WEB-INF/mapper/review-mapper.xml</value>				
+				<value>/WEB-INF/mapper/mp3-mappers.xml</value>
 			</list>
 		</property>
 	</bean>

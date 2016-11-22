@@ -52,6 +52,7 @@
 								data-toggle="dropdown" href="#">내정보 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 										<li><a href="/board/review">리뷰 작성</a></li>
+										<li><a href="/admin/reg">mp3 등록</a></li>
 										<li><a href="/member/modifyPage">내정보수정</a></li>
 										<li><a href="/member/logout">로그아웃</a></li>
 								</ul>

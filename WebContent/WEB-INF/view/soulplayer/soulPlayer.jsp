@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,9 @@
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
-
+	var st="ormak";
+	var t=${list.title};
+	var u=${list.url};
 	new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
@@ -20,17 +25,12 @@ $(document).ready(function(){
 			m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/Park+Hyo+Shin+(%EB%B0%95%ED%9A%A8%EC%8B%A0)+-+Breath+(%EC%88%A8).mp3",
 		},
 		{
-			title:"jung in",
-			webma:"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F47984980&show_artwork=true",
-			webmv:"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F47984980&show_artwork=true",
-			wav:"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F47984980&show_artwork=true",
-			M3U8A:"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F47984980&show_artwork=true",
-			M3UA:"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F47984980&show_artwork=true"
+			title: t,
+			mp3: u,
 		},
 		{
-			title:"Cyber Sonnet",
-			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-			oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+			title:"TT",
+			mp3:"https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/TWICE+(%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4)+-+TT+(%ED%8B%B0%ED%8B%B0).mp3",
 		},
 	], {
 		swfPath: "jPlayer/dist/jplayer",
