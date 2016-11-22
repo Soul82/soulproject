@@ -14,7 +14,7 @@
 //<![CDATA[
 $(document).ready(function(){
 	var st="ormak";
-	var t=${list.title};
+	var	 t=${list.title};
 	var u=${list.url};
 	new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
