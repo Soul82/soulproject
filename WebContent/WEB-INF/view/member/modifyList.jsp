@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 <div id="reg" align="center">
    <img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
@@ -49,9 +50,28 @@
          -->          
       </div>
       <p>
-         <button id="reg_new" type="submit">¼öÁ¤ÇÏ±â</button>
+         <button id="reg_new" type="submit">¼öÁ¤ÇÏ±â</button><input type="button" id="reg_new" name="bt" value="È¸¿øÅ»Åð"/>
       </p>
    </form>
+</div>
+  <div id="port" align="center" name="port">
+	<legend>
+		<b>È¸¿øÅ»Åð</b>
+	</legend>
+	<form id="reg_form" action="/member/leave">
+		 <b> ${id }</b> <br /> <b>PASS</b><br /> <input
+			type="password" required="required" name="pass" /><br />
+		<hr />
+		<input type="submit" value="¼öÁ¤" />
+	</form>
 
 </div>
 </header>
+
+
+<script>
+$(document.getElementById("port")).hide();
+	$(document.getElementsByName("bt")).click(function(){
+		$(document.getElementById("port")).slideToggle();
+	});
+</script>
