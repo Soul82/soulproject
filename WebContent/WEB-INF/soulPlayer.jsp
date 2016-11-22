@@ -1,45 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+	
+	
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jPlayer/lib/jquery.min.js"></script>
 <script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
-	var st="ormak";
-	var	 t=${list.title};
-	var u=${list.url};
-	new jPlayerPlaylist({
-		jPlayer: "#jquery_jplayer_1",
-		cssSelectorAncestor: "#jp_container_1"
-	}, [
-		{
-			title: "SoulMusic",
-			m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/Park+Hyo+Shin+(%EB%B0%95%ED%9A%A8%EC%8B%A0)+-+Breath+(%EC%88%A8).mp3",
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				title: "SoulMusic",
+				m4a: "https://s3.ap-northeast-2.amazonaws.com/soul82/Park+Hyo+Shin+(%EB%B0%95%ED%9A%A8%EC%8B%A0)+-+Breath+(%EC%88%A8).mp3",
+			});
 		},
-		{
-			title: t,
-			mp3: u,
-		},
-		{
-			title:"TT",
-			mp3:"https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/TWICE+(%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4)+-+TT+(%ED%8B%B0%ED%8B%B0).mp3",
-		},
-	], {
-		swfPath: "jPlayer/dist/jplayer",
-		supplied: "oga, mp3, m4a",
+		swfPath: "../../dist/jplayer",
+		supplied: "m4a, oga",
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
 		smoothPlayBar: true,
-		keyEnabled: true
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true
 	});
 });
 //]]>
@@ -48,12 +36,10 @@ $(document).ready(function(){
 <body>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-	<div class="jp-type-playlist">
+	<div class="jp-type-single">
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
-				<button class="jp-previous" role="button" tabindex="0">previous</button>
 				<button class="jp-play" role="button" tabindex="0">play</button>
-				<button class="jp-next" role="button" tabindex="0">next</button>
 				<button class="jp-stop" role="button" tabindex="0">stop</button>
 			</div>
 			<div class="jp-progress">
@@ -71,16 +57,13 @@ $(document).ready(function(){
 			<div class="jp-time-holder">
 				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
 				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-			</div>
-			<div class="jp-toggles">
-				<button class="jp-repeat" role="button" tabindex="0">repeat</button>
-				<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
 			</div>
 		</div>
-		<div class="jp-playlist">
-			<ul>
-				<li>&nbsp;</li>
-			</ul>
+		<div class="jp-details">
+			<div class="jp-title" aria-label="title">&nbsp;</div>
 		</div>
 		<div class="jp-no-solution">
 			<span>Update Required</span>
@@ -89,5 +72,3 @@ $(document).ready(function(){
 	</div>
 </div>
 </body>
-
-</html>

@@ -1,6 +1,6 @@
 package Streaming.pojo;
 
-public class mp3reposit {
+public class MP3reposit {
 	int num;
 	String artist;
 	String title;
@@ -8,6 +8,7 @@ public class mp3reposit {
 	String mv;
 	String url;
 	String oriname;
+	
 	public String getOriname() {
 		return oriname;
 	}
@@ -50,5 +51,4 @@ public class mp3reposit {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
 }

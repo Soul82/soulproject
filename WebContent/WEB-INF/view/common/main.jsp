@@ -8,7 +8,7 @@
 	    <div class="header-content-inner">
 	        <h1 id="homeHeading">Soul Music</h1>
 	        <hr>
-	        <a href="soulPlayer.jsp" class="btn btn-primary btn-xl page-scroll">Play music</a>
+	        <a onclick="soulplayer()" class="btn btn-primary btn-xl page-scroll">Play music</a>
 	    </div>
 	</div>
 </header>
@@ -116,5 +116,12 @@
         </div>
     </section>
 
-    
+<script>
+	function soulplayer(){
+		window.open("/playmusic", "", "width=460,height=900");
+	}
+
+</script>    
+
+
     

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import Streaming.pojo.mp3reposit;
+import Streaming.pojo.MP3reposit;
 
 @Component
 public class streamingServ {
@@ -24,7 +24,7 @@ public class streamingServ {
 			s3.uploadmp3(f, oriname);
 			String url="https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/"+oriname;
 			
-			mp3reposit mp3up=new mp3reposit();
+			MP3reposit mp3up=new MP3reposit();
 				mp3up.setArtist(artist);
 				mp3up.setTitle(title);
 				mp3up.setMv(mv);
@@ -42,7 +42,7 @@ public class streamingServ {
 		}
 	}
 	
-	public List callmp3(){
+	public List ListMp3(){
 		SqlSession ss=fac.openSession();
 		List li=ss.selectList("mp3.reglist");
 		ss.close();

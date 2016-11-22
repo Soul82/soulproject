@@ -53,6 +53,7 @@
 								<ul class="dropdown-menu">
 										<li><a href="/board/review">리뷰 작성</a></li>
 										<li><a href="/admin/reg">mp3 등록</a></li>
+										<li><a href="/admin/reglist">mp3 list</a></li>
 										<li><a href="/member/modifyPage">내정보수정</a></li>
 										<li><a href="/member/logout">로그아웃</a></li>
 								</ul>
