@@ -1,5 +1,6 @@
 package Streaming.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -68,15 +69,15 @@ public class streamingCon {
 		ModelAndView mav = new ModelAndView();
 		List<MP3reposit> li=upServ.ListMp3();
 		
+		ArrayList<HashMap> musicList = new ArrayList<>();
 		for(int i=0;i<li.size();i++){
 			HashMap<String, String> map=new HashMap<String, String>();
 				map.put("title", li.get(i).getTitle());
 				map.put("url", li.get(i).getUrl());
-				mav.addObject("map",map);
-				mav.addObject("mapsize",map.size());
+				musicList.add(map);
 		}
-//		mav.addObject("title", li.get(1).getTitle());
-//		mav.addObject("url", li.get(1).getUrl());
+		mav.addObject("music",musicList);
+		mav.addObject("musicSize",musicList.size());
 		mav.addObject("list",li);
 		mav.setViewName("/soulplayer/player");
 		return mav;

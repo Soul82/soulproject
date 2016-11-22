@@ -12,17 +12,6 @@
 
 <script type="text/javascript">
 //<![CDATA[
-function musiclist(){
-	var html;
-	for(var i=0;i<${mapsize};i++){
-		html+="{ <br>";
-		html+="title: ${map.title}, <br/>"
-		html+="mp3: ${map.url}, <br/>"
-		html+="},";
-		}
-	}
-} 
-	
 	
 	
 $(document).ready(function(){
@@ -30,11 +19,15 @@ $(document).ready(function(){
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
 	}, [
-		$(jp_container_1).append(musiclist());
+		</script>
+		<c:forEach var="m" items="${list}" varStatus="loop">
 		{
-			title: "${map.title}",
-			mp3: "${map.url}",
-		},
+			title: "${list.title },"
+			mp3: "${list.url },"
+		}
+		<c:if test="${not loop.last}">,</c:if>
+		</c:forEach>
+		<script>
 	], {
 		swfPath: "jPlayer/dist/jplayer",
 		supplied: "oga, mp3, m4a",
