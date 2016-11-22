@@ -135,7 +135,7 @@ public class mainCon {
 	@RequestMapping("/soulPlayer")
 	public ModelAndView soulPlayer(){
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("soulPlayer");
+		mv.setViewName("/soulplayer/soulPlayer");
 		return mv;
 	}
 }
