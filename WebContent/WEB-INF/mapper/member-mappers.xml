@@ -13,8 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="logcheck" parameterType="java.lang.String" resultType="java.util.HashMap">
-		select * from member where id =#{id} 
+		select * from member where id =#{id}
 	</select>
+	
 	
 	<update id="memup" parameterType="java.util.HashMap">
 		UPDATE MEMBER set IMG=#{img}, PASS=#{pass} ,MAIL=#{mail} WHERE ID=#{id}
@@ -26,4 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="imgget" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select * from imgsa where id =#{id}
 	</select>
+	<delete id="memdel" parameterType="java.lang.String">
+	DELETE MEMBER WHERE ID=#{id}
+	</delete>
 </mapper>

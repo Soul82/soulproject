@@ -23,6 +23,7 @@ public class modifyCon {
 	
 	@RequestMapping("/member/modifyPage")
 	public ModelAndView modifyPage(HttpSession session) {
+		
 		ModelAndView mav= new ModelAndView();
 		String id=(String)session.getAttribute("userId");
 		mav.addObject("id", id);
@@ -61,6 +62,24 @@ public class modifyCon {
 		}else{
 			mav.setViewName("body:member/modifyList");
 		}
+		return mav;
+	}
+	@RequestMapping("/member/leave")
+	public ModelAndView leave(HttpSession session,String pass){
+		ModelAndView mav= new ModelAndView();
+		String id=(String)session.getAttribute("userId");
+		int rst = ls.logCheck(id, pass);
+		if(rst==1) {
+			int rr=ms.memdelet(id);
+			if(rr==1){
+				session.invalidate();
+				mav.setViewName("body:member/deletComplete");
+			}else{
+				mav.setViewName("body:member/modify");
+				
+			}
+		}
+		
 		return mav;
 	}
 }

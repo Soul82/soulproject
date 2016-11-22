@@ -40,7 +40,15 @@ public class modifyServ {
 		HashMap map=new HashMap();
 		SqlSession sql = fac.openSession();
 		map=sql.selectOne("member.imgget",id);
+		sql.close();
 		return map;
+	}
+	public int memdelet(String id){
+		SqlSession sql = fac.openSession();
+		int r=sql.delete("member.memdel",id);
+		
+		return r;
+		
 	}
 
 	

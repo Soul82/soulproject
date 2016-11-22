@@ -12,7 +12,7 @@
 		<h2 align="left">Registration</h2>
 		<div align="left">
 			<p>
-				<label>사진</label> <input type="file" id="img" name="img" placeholder="사진" required /><!-- onselect="javascript:checkFile()" -->
+				<label>사진</label> <input type="file" id="img" name="img" placeholder="사진" onclick="_checkFile()" required /><!-- onselect="javascript:checkFile()" -->
 			</p>
 			<p>
 				<label>아이디</label> <input type="text" id="id" name="id" placeholder="6~20자로 입력" required />
@@ -128,7 +128,7 @@
 
 
 </script>
-<!-- 
+
 <script>
 function checkFile() {
 	var fm=document.fileForm;
@@ -142,6 +142,6 @@ function checkFile() {
 
 }
 </script>
- -->
+
 
 </html>

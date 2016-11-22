@@ -1,6 +1,9 @@
 package Main.control;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,11 +18,15 @@ public class mainCon {
 
 	@RequestMapping({"/","/index"})
 	public ModelAndView main() {
+		String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
+		String pageContents = "";
+		StringBuilder contents = new StringBuilder();
 		try {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
 			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
 			String mnetSite = "http://www.mnet.com/chart/TOP100/20161118";
+			
 
 			// bugs
 			Source bugSource = new Source(new URL(bugsStie));
@@ -73,7 +80,42 @@ public class mainCon {
 				map.put("album", album[0]);
 				mnet.add(map);
 			}
+			URL url = new URL(urlPath);
+			URLConnection con = (URLConnection) url.openConnection();
+			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
 
+			BufferedReader buff = new BufferedReader(reader);
+
+			while ((pageContents = buff.readLine()) != null) {
+				contents.append(pageContents);
+				contents.append("\r\n");
+			}
+			buff.close();
+			
+			String naverSource=contents.toString();
+			String[] naverTitle = naverSource.split("><span class=\"ellipsis\">");
+			String[] title1 = null;
+
+			String[] naverArtist = naverSource.split("<span class=\"ellipsis\" >");
+			String[] artist1 = null;
+
+			String[] navernAlbum = naverSource.split("http://musicmeta.phinf.naver.net");
+			String[] album1 = null;
+
+			ArrayList<HashMap> naverMusic = new ArrayList<>();
+
+			for (int i = 1; i < 45; i++) {
+				HashMap map = new HashMap();
+				title = naverTitle[i].split("\\<");
+				artist = naverArtist[i].split("\\<");
+				artist[0]=artist[0].replaceAll("\\s+", "");
+				album = navernAlbum[i].split("\\?");
+				album[0]="http://musicmeta.phinf.naver.net"+album[0];
+				map.put("title", title[0]);
+				map.put("artist", artist[0]);
+				map.put("album", album[0]);
+				naverMusic.add(map);
+			}
 			mv.addObject("bugs", bugs);
 			mv.addObject("mnet", mnet);
 			mv.setViewName("t:nav");
@@ -82,7 +124,13 @@ public class mainCon {
 			e.printStackTrace();
 			return null;
 		}
+		
+		
+
+		
 	}
+	
+	
 	
 	@RequestMapping("/soulPlayer")
 	public ModelAndView soulPlayer(){
