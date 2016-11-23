@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import Streaming.model.jAudioServ;
 import Streaming.model.streamingServ;
 import Streaming.pojo.MP3reposit;
 
@@ -19,18 +20,6 @@ public class streamingCon {
 	@Autowired
 	streamingServ upServ;
 
-	// JSON 방식으로 jplayer한테 전달해주기
-//	@RequestMapping("/json/soulPlayer")
-//	public ModelAndView soulPlayer(){
-//		ModelAndView mv=new ModelAndView();
-//		List<MP3reposit> li=upServ.ListMp3();
-//		String json="{title:&nbsp;"+li.get(1).getTitle()+",<br/>"+"mp3:&nbsp;"+li.get(1).getUrl()+",},";
-//		System.out.println(json);
-//		mv.addObject("json",json);
-//		mv.setViewName("/soulplayer/player");
-//		return mv;
-//	}
-	
 	// 관리자 mp3 등록페이지
 	@RequestMapping("/admin/reg")
 	public String soundCould() {
@@ -81,5 +70,17 @@ public class streamingCon {
 		mav.addObject("list",li);
 		mav.setViewName("/soulplayer/player");
 		return mav;
+	}
+	
+	@Autowired
+	jAudioServ audio;
+	
+	//jAudioTagger mp3파일 정보 불러오기
+	@RequestMapping("/loadmp3")
+	public ModelAndView loadFile(){
+		ModelAndView mv=new ModelAndView();
+		audio.jTagger();
+		mv.setViewName("#");
+		return mv;
 	}
 }

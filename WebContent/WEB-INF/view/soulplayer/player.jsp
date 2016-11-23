@@ -11,7 +11,6 @@
 <script type="text/javascript" src="jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
 
 <script type="text/javascript">
-//<![CDATA[
 	
 	
 $(document).ready(function(){
@@ -19,15 +18,13 @@ $(document).ready(function(){
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
 	}, [
-		</script>
-		<c:forEach var="m" items="${list}" varStatus="loop">
-		{
-			title: "${list.title },"
-			mp3: "${list.url },"
-		}
-		<c:if test="${not loop.last}">,</c:if>
-		</c:forEach>
-		<script>
+			<c:forEach var="m" items="${music}" varStatus="loop">
+			{
+				"title" : "${m.title}",
+				"mp3" :"${m.url}"
+			}	
+			<c:if test="${loop.last eq false}">,</c:if>
+			</c:forEach>
 	], {
 		swfPath: "jPlayer/dist/jplayer",
 		supplied: "oga, mp3, m4a",
@@ -38,7 +35,6 @@ $(document).ready(function(){
 		keyEnabled: true
 	});
 });
-//]]>
 </script>
 </head>
 <body>
