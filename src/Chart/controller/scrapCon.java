@@ -190,6 +190,56 @@ public class scrapCon {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	@RequestMapping("/top6")
+	public ModelAndView top6() {
+		try {
+			String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
+			String pageContents = "";
+			StringBuilder contents = new StringBuilder();
+			ModelAndView mv = new ModelAndView();
+			// 링크연결
+			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
+			// bugs
+			Source bugSource = new Source(new URL(bugsStie));
+			bugSource.getAllTags();
+			bugSource.fullSequentialParse();
+
+			String sourBugs = bugSource.toString();
+			String[] bugsTitle = sourBugs.split("name=\"check\" disc_id=\"1\" title=\"");
+			String[] title = null;
+
+			String[] bugsArtist = sourBugs.split("\" artist_disp_nm=\"");
+			String[] artist = null;
+
+			String[] bugsAlbum = sourBugs.split("\"http://image.bugsm.co.kr/album/images/");
+			String[] album = null;
+
+			ArrayList<HashMap> bugs = new ArrayList<>();
+
+			for (int i = 1; i < 7; i++) {
+				HashMap map = new HashMap();
+				title = bugsTitle[i].split("\"");
+				artist = bugsArtist[i].split("\"");
+				album = bugsAlbum[i].split("\"");
+				map.put("title", title[0]);
+				map.put("artist", artist[0]);
+				map.put("album", "http://image.bugsm.co.kr/album/images/" + album[0]);
+				bugs.add(map);
+			}
+			
+			
+			
+			
+
+			mv.addObject("bugs", bugs);
+
+			mv.setViewName("/album");
+			return mv;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 		
 		
 

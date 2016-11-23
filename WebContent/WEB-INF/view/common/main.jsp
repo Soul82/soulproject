@@ -96,6 +96,29 @@
         </div>
     </aside>
 
+	<section class="no-padding" id="album">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+            <c:forEach var="bugs2" items="${bugs2 }" varStatus="status">
+                <div class="col-lg-33 col-sm-2">
+                    <a href="${bugs2.album}" class="portfolio-box">
+                        <img src="${bugs2.album}" class="img-responsive" style="width:300px;height:300px">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                   ${bugs2.title }
+                                </div>
+                                <div class="project-name">
+                                    ${bugs2.artist }
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                </c:forEach>
+            </div>
+        </div>
+    </section>
     <section id="chat">
         <div class="container">
             <div class="row">

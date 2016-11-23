@@ -31,6 +31,7 @@
 							<li><a class="page-scroll" href="/">About</a></li>
 							<li><a class="page-scroll" href="#music">Music</a></li>
 							<li><a class="page-scroll" href="#musicchart">MusicChart</a></li>
+							<li><a class="page-scroll" href="#album">Album</a></li>
 							<li><a id="myBtn">Login</a></li>
 						</ul>
 						</c:when>

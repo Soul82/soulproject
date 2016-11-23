@@ -57,6 +57,46 @@ public class mainCon {
 				map.put("album", "http://image.bugsm.co.kr/album/images/" + album[0]);
 				bugs.add(map);
 			}
+			//=====================================================================
+			String bugsStie2 = "http://music.bugs.co.kr/chart/track/day/total";
+			
+			
+
+			// bugs
+			Source bugSource2 = new Source(new URL(bugsStie2));
+			bugSource2.getAllTags();
+			bugSource2.fullSequentialParse();
+
+			String sourBugs2 = bugSource2.toString();
+			String[] bugsTitle2 = sourBugs2.split("name=\"check\" disc_id=\"1\" title=\"");
+			String[] title2 = null;
+
+			String[] bugsArtist2 = sourBugs2.split("\" artist_disp_nm=\"");
+			String[] artist2 = null;
+
+			String[] bugsAlbum2 = sourBugs2.split("\"http://image.bugsm.co.kr/album/images/");
+			String[] album2 = null;
+
+			ArrayList<HashMap> bugs2 = new ArrayList<>();
+
+			for (int i = 1; i < 13; i++) {
+				HashMap map2 = new HashMap();
+				title2 = bugsTitle2[i].split("\"");
+				artist2 = bugsArtist2[i].split("\"");
+				album2 = bugsAlbum2[i].split("\"");
+				map2.put("title", title2[0]);
+				map2.put("artist", artist2[0]);
+				map2.put("album", "http://image.bugsm.co.kr/album/images/" + album2[0]);
+				bugs2.add(map2);
+			}
+			
+			
+			
+			
+			//========================================================================
+			
+			
+			
 			
 			// Mnet
 			Source mnetSource = new Source(new URL(mnetSite));
@@ -118,7 +158,9 @@ public class mainCon {
 				map.put("album", album[0]);
 				naverMusic.add(map);
 			}
+			
 			mv.addObject("bugs", bugs);
+			mv.addObject("bugs2", bugs2);
 			mv.addObject("mnet", mnet);
 			mv.setViewName("t:nav");
 			return mv;
