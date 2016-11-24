@@ -3,6 +3,9 @@
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <div class="container">
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -32,14 +35,12 @@
 							<li><a class="page-scroll" href="#music">Music</a></li>
 							<li><a class="page-scroll" href="#musicchart">MusicChart</a></li>
 							<li><a class="page-scroll" href="#chat">Chat</a></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
 									<li><a href="#">리뷰게시판</a></li>
 								</ul></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">내정보 <span class="caret"></span></a>
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">내정보 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/board/review">리뷰 작성</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
@@ -47,7 +48,8 @@
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
-								</ul></li>
+								</ul>
+							</li>
 						</ul>
 					</c:otherwise>
 				</c:choose>
