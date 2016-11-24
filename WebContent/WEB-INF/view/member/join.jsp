@@ -15,12 +15,12 @@
 				<label>사진</label> <input type="file" id="img" name="img" placeholder="사진" required /><!-- onselect="javascript:checkFile()" -->
 			</p>
 			<p>
-				<label>아이디</label> <input type="text" id="id" name="id" placeholder="6~20자로 입력" required />
+				<label>아이디</label> <input type="text" id="createId" name="id" placeholder="6~20자로 입력" required />
 				<span id="rst"></span>                                              
 			</p>
 			<p>
 				<label>비밀번호</label> 
-				<input type="password" id="pass" name="pass" placeholder="비밀번호" required /> 
+				<input type="password" id="pass1" name="pass1" placeholder="비밀번호" required /> 
 				<input type="password" id="pass2" placeholder="비밀번호확인" disabled="disabled" required />
 			</p>
 				<span id="rst2"></span>
@@ -57,9 +57,9 @@
 
 <script>
 
-	document.getElementById("id").addEventListener("blur", function(){
-		var v =document.getElementById("id").value;
-	
+	document.getElementById("createId").addEventListener("blur", function(){
+		var v =document.getElementById("createId").value;
+		console.log(v);
 		var xhr = new XMLHttpRequest();
 		xhr.open("get", "/member/joinAjax.it?id="+v, true);
 		xhr.onreadystatechange=function(){
@@ -80,19 +80,19 @@
 		xhr.send();
 	});
 	
-	document.getElementById("pass").addEventListener("blur", function(){
-			var pass = document.getElementById("pass").value;
+	document.getElementById("pass1").addEventListener("blur", function(){
+			var pass1 = document.getElementById("pass1").value;
 			var pass2 = document.getElementById("pass2").value;
-			var chk_num = pass.search(/[0-9]/g);
-			var chk_eng = pass.search(/[a-z]/ig);
+			var chk_num = pass1.search(/[0-9]/g);
+			var chk_eng = pass1.search(/[a-z]/ig);
 			
 			
-	 			if(pass.length < 8){
+	 			if(pass1.length < 8){
 	 				html = "<b style='color:red; padding-left : 100px;'>비밀번호를 8~20자리로 설정해주세요.</b><br/><br/>";
 	 			}else {
 	 				if(chk_num<0 || chk_eng<0){
 	 					html = "<b style='color:red; padding-left : 100px;'>비밀번호를  영문, 숫자 조합으로 설정해주세요.</b><br/><br/>";
-	 				}else if(/(\w)\1\1\1/.test(pass)){
+	 				}else if(/(\w)\1\1\1/.test(pass1)){
 	 					html = "<b style='color:red; padding-left : 100px;'>비밀번호에 같은 문자를 4번이상 사용하실 수 없습니다.</b><br/><br/>";
 	 				}else{
 	 					html = "";
@@ -105,11 +105,11 @@
 	
 	
 	document.getElementById("pass2").addEventListener("blur", function(){
-		var pass = document.getElementById("pass").value;
+		var pass1 = document.getElementById("pass1").value;
 		var pass2 = document.getElementById("pass2").value;
 			if(pass2.length < 1){
 				document.getElementById("pass2").disabled = true;
-			}else if(pass2==pass){
+			}else if(pass2==pass1){
 				html = "<b style='color:green; padding-left : 100px;'>비밀번호 일치</b><br/><br/>";
 			}else {
 				html = "<b style='color:red; padding-left : 100px;'>비밀번호 불일치</b><br/><br/>";
@@ -128,8 +128,5 @@
 
 
 </script>
-
-
-
 
 </html>

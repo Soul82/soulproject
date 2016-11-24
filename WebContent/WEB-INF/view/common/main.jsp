@@ -56,9 +56,9 @@
 			<div class="container">
 				<h2>Soul Music Chart</h2>
 					<tr>
-						<th>  <button type="button" class="btn btn-success">전체 선택</button></th>
-						<th>  <button type="button" class="btn btn-success">선택 듣기</button></th>
-						<th>  <button type="button" class="btn btn-success">선택 담기</button></th>
+						<th><button type="button" class="btn btn-success">전체 선택</button></th>
+						<th><button type="button" class="btn btn-success">선택 듣기</button></th>
+						<th><button type="button" class="btn btn-success">선택 담기</button></th>
 					</tr>
 				<div class="table-responsive">
 					<table class="table">
