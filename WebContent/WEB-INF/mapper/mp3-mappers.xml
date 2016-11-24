@@ -13,4 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="reglist" resultType="Streaming.pojo.MP3reposit">
 		select * from mp3repository order by num desc
 	</select>
+	<insert id="infoinsert" parameterType="java.util.HashMap">
+	insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
+	</insert>
 </mapper>

@@ -1,5 +1,6 @@
 package Streaming.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,7 +18,8 @@ public class streamingServ {
 	
 	@Autowired
 	s3upload s3;
-	
+	@Autowired
+	jAudioServ ja;
 	public boolean insertmp3(MultipartFile f,String artist,String title,String mv){
 		try{
 			String oriname=artist+"-"+title+".mp3";
@@ -48,4 +50,16 @@ public class streamingServ {
 		ss.close();
 		return li;
 	}
+	
+	public void songinfo(String artistp,String titlep){
+		SqlSession ss=fac.openSession();
+		HashMap map=ja.jTagger(artistp, titlep);
+		System.out.println(map.get("title"));
+		
+		ss.close();
+		
+	}
+	
+	
+	
 }

@@ -44,6 +44,7 @@ public class streamingCon {
 		boolean r = upServ.insertmp3(f, artist, title, mv);
 		if (r == true) {
 			System.out.println("등록 성공 제바루ㅜㅜㅜㅜ");
+			upServ.songinfo(artist,title);
 			mav.addObject("list", upServ.ListMp3());
 			mav.setViewName("/admin/mp3list");
 		} else {
@@ -79,8 +80,8 @@ public class streamingCon {
 	@RequestMapping("/loadmp3")
 	public ModelAndView loadFile(){
 		ModelAndView mv=new ModelAndView();
-		//audio.jTag();
-		audio.jTagger();
+		
+		audio.jTagger("","");
 		mv.setViewName("#");
 		return mv;
 	}

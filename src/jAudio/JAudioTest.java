@@ -33,11 +33,13 @@ public class JAudioTest {
 		String genre = tag.getFirst(FieldKey.GENRE);
 
 		System.out.println("Tag : " + tag2);
-		System.out.println("Song Name : " + title);
-		System.out.println("Artist : " + artist);
-		System.out.println("Album : " + album);
-		System.out.println("Year : " + year);
-		System.out.println("Genre : " + genre);
+//		System.out.println("Song Name : " + title);
+//		System.out.println("Artist : " + artist);
+//		System.out.println("Album : " + album);
+//		System.out.println("Year : " + year);
+//		System.out.println("Genre : " + genre);
+		String gasa=tag2.toString();
+		String [] s=gasa.split("Lyrics=\"");
 		
 		file.delete();
 	}
