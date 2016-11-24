@@ -85,15 +85,15 @@
 			<div class="container">
 				<h2>Soul Music Chart</h2>
 					<tr>
-						<th><button type="button" class="btn btn-success">전체 선택</button></th>
+						<th><button type="button" class="btn btn-success" onclick="allChk2()">전체 선택</button></th>
 						<th><button type="button" class="btn btn-success">선택 듣기</button></th>
-						<th><button type="button" class="btn btn-success">선택 담기</button></th>
+						<th><button type="button" class="btn btn-success" id="choice" name="title">선택 담기</button></th>
 					</tr>
 				<div class="table-responsive">
 					<table class="table">
 							<thead>
 								<tr>
-									<th>select</th>
+									<th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
 									<th>rank</th>
 									<th>album</th>
 									<th>title</th>
@@ -158,6 +158,51 @@
 	function soulplayer(){
 		window.open("/playmusic", "", "width=460,height=900");
 	}
+	
+	function allChk(){
+		var chk = $("input[name='chk_all']").is(":checked");
+		
+		if(chk){
+			$("input[name='chk']").prop("checked", true);
+		}else{
+			$("input[name='chk']").prop("checked", false);
+		}
+	}
+	
+	function allChk2(){
+		var chk = $("input[name='chk_all']").is(":checked");
+		
+		if(chk){
+			$("input[name='chk']").prop("checked", false);
+			$("input[name='chk_all']").prop("checked", false);	
+		}else{
+			$("input[name='chk']").prop("checked", true);
+			$("input[name='chk_all']").prop("checked", true);	
+		}
+	}
+	
+	document.getElementById("choice").addEventListener("click", function(){
+		
+		var url = "/choice/list?tt=";
+
+		if(${sessionScope.userId eq null}){
+			window.alert("로그인이 필요합니다 !");
+		}else{
+			$(".chkc").each(function(){
+				//	console.log($(this).val());
+				//	console.log($(this).prop("checked"));
+				
+					if($(this).prop("checked")){
+						var tt = Array();
+						tt = $(this).val() + "/";
+						// console.log(tt);
+						url += tt;
+					}
+			});
+		}
+		console.log(url);
+		window.open(url, "choice", "height=200; width=100");
+	});
 
 </script>    
 
