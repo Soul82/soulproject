@@ -1,5 +1,10 @@
 package Member.control;
 
+import java.util.UUID;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,4 +65,24 @@ public class joinCon {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/member/mailConfirm")
+	public ModelAndView sendEmail(String authmail, HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView("/member/auth");
+		
+		String uid = UUID.randomUUID().toString().substring(0,6);
+		
+		Cookie authNumber = new Cookie("authNumber"+uid, uid);
+			authNumber.setPath("/");
+			authNumber.setMaxAge(60*3);
+		resp.addCookie(authNumber);
+	
+		boolean r =	js.sendEmail(authmail, uid);
+			mav.addObject("auth", r);
+			mav.addObject("uid", uid);
+			
+		return mav;
+			
+	}
+	
 }
