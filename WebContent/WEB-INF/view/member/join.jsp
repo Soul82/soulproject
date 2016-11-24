@@ -44,7 +44,7 @@
 			<p>
 				<label>이메일</label>
 				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
-				<button id="confirm" onclick="authpop()" type="button">인증번호받기</button>
+				<button id="confirm" onclick="authpop()" type="button">인증받기</button>
 			</p>
 		</div>
 		<p>
@@ -123,9 +123,6 @@
 		var url = "/member/mailConfirm?authmail="+mail;
 		window.open(url, "authmail", "heigth=100; width=150");
 	}
-	
-	
-
 
 </script>
 
