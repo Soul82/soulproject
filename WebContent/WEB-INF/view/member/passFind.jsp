@@ -8,33 +8,19 @@
 	<img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
 
 	<form id="reg_form" style="width: 700px; border: black solid 1px;
-	 border-radius: 1em" action="/member/joinConfirm" method="post" enctype="multipart/form-data">
-		<h2 align="left">Registration</h2>
+	 border-radius: 1em" action="/member/passf" method="post" enctype="multipart/form-data">
+		<h2 align="left">본인의 정보를 입력해주세요</h2>
 		<div align="left">
+			
 			<p>
-				<label>사진</label> <input type="file" id="img" name="img" placeholder="사진" required /><!-- onselect="javascript:checkFile()" -->
-			</p>
-			<p>
-				<label>아이디</label> <input type="text" id="id" name="id" placeholder="6~20자로 입력" required />
+				<label>아이디</label> <input type="text" id="id" name="id" placeholder="ID을 입력하세요" required />
 				<span id="rst"></span>                                              
 			</p>
-			<p>
-				<label>비밀번호</label> 
-				<input type="password" id="pass" name="pass" placeholder="비밀번호" required /> 
-				<input type="password" id="pass2" placeholder="비밀번호확인" disabled="disabled" required />
-			</p>
-				<span id="rst2"></span>
-			<p>
+			
 				<label>이름</label> 
-				<input type="text" id="name" name="name" placeholder="한글,영문 2~15자" min="2" maxlength="15" required />
+				<input type="text" id="name" name="name" placeholder="본인의 이름" min="2" maxlength="15" required />
 			</p>
-			<p>
-				<label>성별</label> 
-				<input type="radio" name="gender" id="genderM" class="input_check"> 
-				<label for="genderM" class="label_check">남자</label> 
-				<input type="radio" name="gender" id="genderW" class="input_check">
-				<label for="genderW" class="label_check">여자</label>
-			</p>
+			
 			<p>
 				<label>생년월일</label>
 				<input type="text" id="birthYear" name="birthYear" style="width: 80px;" maxlength="4"><span>년</span> 
@@ -43,12 +29,12 @@
 			</p>
 			<p>
 				<label>이메일</label>
-				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
-				<button id="confirm" onclick="authpop()" type="button">인증번호받기</button>
+				<input type="email" id="mail" name="mail" placeholder="가입시 E-mail입력" required />
+				
 			</p>
 		</div>
 		<p>
-			<button id="reg_new" type="submit">회원가입</button>
+			<button id="reg_new" type="submit">비밀번호 찾기</button>
 		</p>
 	</form>
 
@@ -117,15 +103,14 @@
 		document.getElementById("rst2").innerHTML = html;
 	});
 	
-	// 이메일 인증
-	function authpop(){
-		var mail = document.getElementById("mail").value;
-		var url = "/member/mailConfirm?authmail="+mail;
-		window.open(url, "authmail", "heigth=100; width=150");
-	}
 	
+	$(document).ready(function(){
+		  $("#reg_new").on("click", function(){
+		    window.open("", "popup_window", "width=500, height=300, scrollbars=no");
+		    $("#reg_form").submit();
+		  });
+	});
 	
-
 
 </script>
 

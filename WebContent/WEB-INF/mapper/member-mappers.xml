@@ -7,6 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="join" parameterType="Member.pojo.Member" >
 		insert into member values(#{img}, #{id}, #{pass}, #{mail}, #{name}, #{gender}, #{birth}, #{notice} )
 	</insert>
+	<select id="passfind" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from member where id =#{id} and mail=#{mail}and name=#{name} and birth=#{birth}  
+	</select>
 	<!-- 로그인 -->
 	<select id="log" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select * from member where id =#{id} and pass=#{pass}

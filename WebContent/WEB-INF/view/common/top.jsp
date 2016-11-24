@@ -98,7 +98,7 @@
 	      <div class="modal-footer">
 	        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 	        <p>아직 회원이 아니신가요? <a href="/member/joinPage">Sign Up</a></p>
-	        <p>Forgot <a href="#">Password?</a></p>
+	        <p>Forgot <a href="/member/passFindView">Password?</a></p>
 	      </div>
 	    </div>
 	  </div>

@@ -79,6 +79,7 @@ public class streamingCon {
 	@RequestMapping("/loadmp3")
 	public ModelAndView loadFile(){
 		ModelAndView mv=new ModelAndView();
+		//audio.jTag();
 		audio.jTagger();
 		mv.setViewName("#");
 		return mv;

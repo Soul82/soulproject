@@ -1,5 +1,8 @@
 package Member.control;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,22 @@ public class logCon {
 	public String loginView() {
 		return "body:member/login";
 	}
+	@RequestMapping("/member/passFindView")
+	public String passFindView() {
+		return "body:member/passFind";
+	}
+	@RequestMapping("//member/passf")
+	public ModelAndView passfind(String id, String mail, String name, String birthYear, String birthMonth, String birthDay){
+		ModelAndView mav = new ModelAndView();
+		String birth=birthYear+birthMonth+birthDay;
+		HashMap map= ls.infoCheck(id, mail, name, birth);
+		
+		mav.addObject("pass",map);
+		mav.setViewName("body:member/pass");
+		
+		return mav;
+	}
+	
 	
 	@RequestMapping("/member/login")
 	public ModelAndView proceed(HttpSession session, @RequestParam(name="id")String id, String pass){
@@ -41,4 +60,5 @@ public class logCon {
 		}
 		return mav;
 	}
+	
 }
