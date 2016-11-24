@@ -127,7 +127,7 @@
 
 <script>
 	function soulplayer(){
-		window.open("/playmusic", "", "width=460,height=900");
+		window.open("/playmusic", "", "width=410,height=580");
 	}
 	
 	function allChk(){
@@ -166,7 +166,7 @@
 					if($(this).prop("checked")){
 						var tt = Array();
 						tt = $(this).val() + "/";
-						// console.log(tt);
+						console.log(tt);
 						url += tt;
 					}
 			});

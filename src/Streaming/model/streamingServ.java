@@ -2,6 +2,7 @@ package Streaming.model;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -57,9 +58,16 @@ public class streamingServ {
 		System.out.println(map.get("title"));
 		
 		ss.close();
-		
 	}
 	
-	
+	public List selectMp3(String title){
+		SqlSession ss=fac.openSession();
+		
+		List li=ss.selectList("mp3.selectList",title);
+		
+		ss.close();
+		return li;
+		
+	}
 	
 }
