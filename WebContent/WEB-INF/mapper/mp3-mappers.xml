@@ -16,4 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="infoinsert" parameterType="java.util.HashMap">
 	insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
 	</insert>
+	
+	<insert id="insertalbum" parameterType="java.lang.String">
+		insert into myalbum values(#{id}, #{album}, #{title}, sysdate)
+	</insert>
 </mapper>

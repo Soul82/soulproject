@@ -12,6 +12,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.htmlparser.jericho.Source;
@@ -246,4 +247,30 @@ public class scrapCon {
 		}
 
 	}
+	
+	@RequestMapping("/choice/list")
+	public ModelAndView choiceList(String tt){
+		ModelAndView mav = new ModelAndView("/chart/choicelist");
+		
+			mav.addObject("title", tt);
+			
+		System.out.println(tt);
+		return mav;
+	}
+	
+	@RequestMapping("/choice/createAlbum")
+	@ResponseBody
+	public String createAlbum(String albumName, String title, String userId){
+		
+		System.out.println("**"+title);
+		
+		boolean r = ss.create(albumName, title, userId);
+		if (r) {
+			return "true";
+		} else {
+			return "false";
+		}
+		
+	}
+	
 }
