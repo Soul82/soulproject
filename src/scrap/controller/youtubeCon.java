@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,7 +18,7 @@ public class youtubeCon {
 
 	@RequestMapping("/youtube/board")
 	public String MVboard() {
-		return "youtube/youtubeSearch";
+		return "body:youtube/youtubeSearch";
 	}
 	
 	@RequestMapping("/youtube/mvplay")
@@ -29,15 +31,19 @@ public class youtubeCon {
 
 	@RequestMapping("/youtube/search")
 	public ModelAndView mvSearch(String urlSearch) {
-		System.out.println("유튭 검색어"+urlSearch);
-		String urlPath = "https://www.youtube.com/results?search_query=" + urlSearch;
-		String pageContents = "";
-		StringBuilder contents = new StringBuilder();
-		ModelAndView mv = new ModelAndView();
-		
 		try {
-			URL url = new URL(urlPath);
+			System.out.println("유튭 검색어"+urlSearch);
+			String urlPath = "https://www.youtube.com/results?search_query="+URLDecoder.decode(urlSearch,"UTF-8");
+			System.out.println("youtube검색?==>"+urlPath);
+			System.out.println("=======================");
+			String pageContents = "";
+			StringBuilder contents = new StringBuilder();
+			ModelAndView mv = new ModelAndView();
+			
+//			URL url = new URL(urlPath);
+			URL url = new URL(URLDecoder.decode(urlPath,"utf-8"));
 			URLConnection con = (URLConnection) url.openConnection();
+			System.out.println(con);
 			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
 
 			BufferedReader buff = new BufferedReader(reader);
@@ -53,11 +59,12 @@ public class youtubeCon {
 			String[] vSplit = searchSource.split("data-context-item-id=\"");
 			String[] video = null;
 
-			String[] iSplit = searchSource.split("https://i.ytimg.com/vi");
-//			 String[] iSplit2=searchSource.split("<img src=\"");
-//			 
+			String[] iSplit2=searchSource.split(".ytimg.com/vi/");
+			 
 			String[] image = null;
-
+			String[] himage = null;
+			himage=iSplit2[0].split("//");
+			
 			String[] tSplit = searchSource.split("aria-hidden=\"true\">");
 			String[] time = null;
 			
@@ -69,13 +76,14 @@ public class youtubeCon {
 				HashMap<String,String>map=new HashMap<>();
 				video = vSplit[i+1].split("\"");
 				time = tSplit[i+1].split("<");
-				image = iSplit[i+1].split(".jpg");
-				title= titleSplit[i+1].split("<");
-				title= titleSplit[i+5+i].split("<");
+				image = iSplit2[i+5].split(".jpg");
+				title= titleSplit[i+4+i].split("<");
+				
+				System.out.println(image[0]);
 				
 				map.put("video", video[0]);
 				map.put("time", time[0]);
-				map.put("image", "https://i.ytimg.com/vi"+image[0]+".jpg");
+				map.put("image", "//i.ytimg.com/vi/"+image[0]+".jpg");
 				map.put("title", title[0]);
 				
 				search.add(map);
