@@ -18,17 +18,14 @@ import net.htmlparser.jericho.Source;
 @Controller
 public class mainCon {
 
-	@RequestMapping({"/","/index"})
+	@RequestMapping({ "/", "/index" })
 	public ModelAndView main() {
-		String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
-		String pageContents = "";
-		StringBuilder contents = new StringBuilder();
+
 		try {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
 			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
 			String mnetSite = "http://www.mnet.com/chart/TOP100/20161118";
-			
 
 			// bugs
 			Source bugSource = new Source(new URL(bugsStie));
@@ -57,10 +54,8 @@ public class mainCon {
 				map.put("album", "http://image.bugsm.co.kr/album/images/" + album[0]);
 				bugs.add(map);
 			}
-			//=====================================================================
+			// =====================================================================
 			String bugsStie2 = "http://music.bugs.co.kr/chart/track/day/total";
-			
-			
 
 			// bugs
 			Source bugSource2 = new Source(new URL(bugsStie2));
@@ -89,15 +84,9 @@ public class mainCon {
 				map2.put("album", "http://image.bugsm.co.kr/album/images/" + album2[0]);
 				bugs2.add(map2);
 			}
-			
-			
-			
-			
-			//========================================================================
-			
-			
-			
-			
+
+			// ========================================================================
+
 			// Mnet
 			Source mnetSource = new Source(new URL(mnetSite));
 			mnetSource.getAllTags();
@@ -122,6 +111,11 @@ public class mainCon {
 				map.put("album", album[0]);
 				mnet.add(map);
 			}
+
+			String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
+			String pageContents = "";
+			StringBuilder contents = new StringBuilder();
+
 			URL url = new URL(urlPath);
 			URLConnection con = (URLConnection) url.openConnection();
 			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
@@ -133,8 +127,8 @@ public class mainCon {
 				contents.append("\r\n");
 			}
 			buff.close();
-			
-			String naverSource=contents.toString();
+
+			String naverSource = contents.toString();
 			String[] naverTitle = naverSource.split("><span class=\"ellipsis\">");
 			String[] title1 = null;
 
@@ -150,15 +144,15 @@ public class mainCon {
 				HashMap map = new HashMap();
 				title = naverTitle[i].split("\\<");
 				artist = naverArtist[i].split("\\<");
-				artist[0]=artist[0].replaceAll("\\s+", "");
+				artist[0] = artist[0].replaceAll("\\s+", "");
 				album = navernAlbum[i].split("\\?");
-				album[0]="http://musicmeta.phinf.naver.net"+album[0];
+				album[0] = "http://musicmeta.phinf.naver.net" + album[0];
 				map.put("title", title[0]);
 				map.put("artist", artist[0]);
 				map.put("album", album[0]);
 				naverMusic.add(map);
 			}
-			
+
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
 			mv.addObject("mnet", mnet);
@@ -168,18 +162,14 @@ public class mainCon {
 			e.printStackTrace();
 			return null;
 		}
-		
-		
 
-		
 	}
-	
-	
+
 	@RequestMapping("/soulPlayer")
-	public ModelAndView soulPlayer(){
-		ModelAndView mv=new ModelAndView();
+	public ModelAndView soulPlayer() {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/soulplayer/player");
-//		mv.setViewName("#");
+		// mv.setViewName("#");
 		return mv;
 	}
 }

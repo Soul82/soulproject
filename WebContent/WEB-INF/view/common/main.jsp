@@ -17,28 +17,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">MusicPlayer!!</h2>
+                    <h2 class="section-heading">TODAY TOP 10!</h2>
                     <hr class="light">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="music">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">노래듣기</h2>
-                    <hr class="primary">
+
+	<section class="no-padding" id="album">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+            <c:forEach var="bugs2" items="${bugs2 }" varStatus="status">
+                <div class="col-lg-33 col-sm-2">
+                    <a href="${bugs2.album}" class="portfolio-box">
+                        <img src="${bugs2.album}" class="img-responsive" style="width:300px;height:300px">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                   ${bugs2.title }
+                                </div>
+                                <div class="project-name">
+                                    ${bugs2.artist }
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+                </c:forEach>
             </div>
         </div>
-        <div class="container" align="center">
-             <c:import url="/soulPlayer"/>
-        </div>
     </section>
-
-
 
 
     <section class="no-padding" id="musicchart">
@@ -85,55 +94,32 @@
     </section>
 
 
-
-
-    <aside class="bg-dark">
+	  <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Welcome to Music Soul!</h2>
-                <a href="#" class="btn btn-default btn-xl sr-button">chart!</a>
+                <a href="#" class="btn btn-default btn-xl sr-button">JoinUS</a>
+                <%--              <c:import url="/soulPlayer"/> --%>
             </div>
         </div>
     </aside>
 
-	<section class="no-padding" id="album">
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-            <c:forEach var="bugs2" items="${bugs2 }" varStatus="status">
-                <div class="col-lg-33 col-sm-2">
-                    <a href="${bugs2.album}" class="portfolio-box">
-                        <img src="${bugs2.album}" class="img-responsive" style="width:300px;height:300px">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                   ${bugs2.title }
-                                </div>
-                                <div class="project-name">
-                                    ${bugs2.artist }
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                </c:forEach>
-            </div>
-        </div>
-    </section>
+
     <section id="chat">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">문의사항이 있을 경우 탈퇴하세요!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>우리 일꾼들 연락처</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <p>voice-fishing</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:soulteam@gmail.com">soulteam@gmail.com</a></p>
                 </div>
             </div>
         </div>
