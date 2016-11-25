@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import Streaming.model.streamingServ;
+import Streaming.pojo.MP3reposit;
 import net.htmlparser.jericho.Source;
 
 @Controller
 public class mainCon {
-
+	@Autowired
+	streamingServ upServ;
 	@RequestMapping({ "/", "/index" })
 	public ModelAndView main() {
 
@@ -84,6 +87,13 @@ public class mainCon {
 				map2.put("album", "http://image.bugsm.co.kr/album/images/" + album2[0]);
 				bugs2.add(map2);
 			}
+			
+				
+				
+				
+
+			
+			
 
 			// ========================================================================
 
@@ -152,7 +162,9 @@ public class mainCon {
 				map.put("album", album[0]);
 				naverMusic.add(map);
 			}
-
+			List<MP3reposit> ls=upServ.ListMp3();
+			System.out.println(ls.get(0).getArtist());
+			mv.addObject("mp3",ls );
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
 			mv.addObject("mnet", mnet);

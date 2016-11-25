@@ -24,7 +24,7 @@
         </div>
     </section>
 
-
+<!-- 
 	<section class="no-padding" id="album">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
@@ -45,6 +45,35 @@
                     </a>
                 </div>
                 </c:forEach>
+            </div>
+        </div>
+    </section>
+     -->
+     
+    	<section class="no-padding" id="album">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+           
+               <c:forEach var="mp3" items="${mp3 }" begin="1" end="12" step="1">
+                <div class="col-lg-33 col-sm-2">
+                    <a href="" class="portfolio-box">
+                        <img src="" class="img-responsive" style="width:300px;height:300px">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                             
+                               <div class="project-category text-faded">
+                               	 ${mp3.title }
+                               </div>
+                             
+                                <div class="project-name">
+                                    ${mp3.artist }
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                  </c:forEach>    
+                
             </div>
         </div>
     </section>
@@ -156,7 +185,7 @@
 		
 		var url = "/choice/list?tt=";
 
-		if(${sessionScope.userId eq null}){
+		if( ${sessionScope.userId eq null}){
 			window.alert("로그인이 필요합니다 !");
 		}else{
 			$(".chkc").each(function(){

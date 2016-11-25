@@ -16,11 +16,14 @@ import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagField;
+import org.jaudiotagger.tag.datatype.Artwork;
 import org.jaudiotagger.tag.id3.AbstractID3v2Frame;
 import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 import org.jaudiotagger.tag.id3.ID3v24Tag;
 import org.jaudiotagger.tag.id3.framebody.FrameBodyAPIC;
 import org.jaudiotagger.tag.id3.valuepair.TextEncoding;
+import org.jaudiotagger.tag.mp4.Mp4Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 
@@ -55,18 +58,27 @@ public class jAudioServ {
 			System.out.println(mp3);
 
 			Tag tag = mp3.getTag();
+			System.out.println("####"+tag.getFirstArtwork());
 			String lr = tag.getFirst(FieldKey.LYRICS);
 			String title = tag.getFirst(FieldKey.TITLE);
 			String artist = tag.getFirst(FieldKey.ARTIST);
 			String album = tag.getFirst(FieldKey.ALBUM);
 			String year = tag.getFirst(FieldKey.YEAR);
 			String genre = tag.getFirst(FieldKey.GENRE);
-			// ===============================================
+		
 			
-			BufferedImage b= mp3.getTag().getFirstArtwork().getImage();
-//			ImageIO.write(b, "jpg", file);
-			ImageIO.createImageInputStream(mp3.getTag().getFirstArtwork().getImage());
-			System.out.println(b);
+			// ===============================================
+
+			Artwork artwork = tag.getFirstArtwork();
+
+			byte[] firstImage = artwork.getBinaryData();
+			System.out.println(firstImage);
+			System.out.println(artwork.getMimeType());
+
+			
+			// BufferedImage bi =
+			// ImageIO.read(ImageIO.createImageInputStream(new
+			// ByteArrayInputStream(coverArtField.getData())
 			// ==========================================
 			map.put("title", title);
 			map.put("artist", artist);
