@@ -13,7 +13,7 @@
 
 <div class="container">
 	<h2>${sessionScope.userId} ´ÔÀÇ ¾Ù¹ü ¸ñ·Ï</h2> <hr/>
-  <form class="form-inline" action="#">
+  <form class="form-inline">
     <div >
     	<br/>
     	<h4>ÃÑ <b> ${total }</b> °³ÀÇ ³ë·¡ ¼±ÅÃ </h4>
@@ -47,13 +47,14 @@
 
 
 <script>
-$("#make").click(function(){  
-    var url="#"+$("#albumName").val();  
-    $.ajax({      
-        type:"get",  
-        url:url,      
-    }).done(function(resp){
-    	$("#complete").html(resp);
-    });  
+$("#make").click(function(){
+    var url="/mp3/makeAlbum?name="+$("#albumName").val();  
+//     $.ajax({      
+//         type:"get",  
+//         url:url,      
+//     }).done(function(resp){
+//     	$("#complete").html(resp);
+//     });  
+    window.open(url, "", "height=500; width=800");
 });  
 </script>

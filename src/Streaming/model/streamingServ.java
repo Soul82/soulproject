@@ -60,14 +60,19 @@ public class streamingServ {
 		ss.close();
 	}
 	
-	public List selectMp3(String title){
+	public int makeAlbum(Map map){
 		SqlSession ss=fac.openSession();
-		
-		List li=ss.selectList("mp3.selectList",title);
+		int b=ss.insert("mp3.insertAlbum",map);
 		
 		ss.close();
+		return b;
+	}
+	
+	public List selectOneMp3(String title){
+		SqlSession ss=fac.openSession();
+		List li=ss.selectList("mp3.selectList",title);
+		ss.close();
 		return li;
-		
 	}
 	
 }
