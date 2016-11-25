@@ -185,7 +185,7 @@
 		
 		var url = "/choice/list?tt=";
 
-		if(${sessionScope.userId eq null}){
+		if( ${sessionScope.userId eq null}){
 			window.alert("로그인이 필요합니다 !");
 		}else{
 			$(".chkc").each(function(){

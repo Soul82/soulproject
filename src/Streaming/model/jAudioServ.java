@@ -58,12 +58,15 @@ public class jAudioServ {
 			System.out.println(mp3);
 
 			Tag tag = mp3.getTag();
+			System.out.println("####"+tag.getFirstArtwork());
 			String lr = tag.getFirst(FieldKey.LYRICS);
 			String title = tag.getFirst(FieldKey.TITLE);
 			String artist = tag.getFirst(FieldKey.ARTIST);
 			String album = tag.getFirst(FieldKey.ALBUM);
 			String year = tag.getFirst(FieldKey.YEAR);
 			String genre = tag.getFirst(FieldKey.GENRE);
+		
+			
 			// ===============================================
 
 			Artwork artwork = tag.getFirstArtwork();
@@ -72,6 +75,7 @@ public class jAudioServ {
 			System.out.println(firstImage);
 			System.out.println(artwork.getMimeType());
 
+			
 			// BufferedImage bi =
 			// ImageIO.read(ImageIO.createImageInputStream(new
 			// ByteArrayInputStream(coverArtField.getData())
