@@ -26,7 +26,7 @@
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td>${status.count }</td>
-					<td id="tt" onclick="selectOne('${list.title}')">${list.title } <input type="hidden" id="listNum" value="${list.num }"></input></td>
+					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
 					<td>${list.artist }</td>
 					<td><img src="/img/like.jpg" width="30" height="30" /></td>
 					<td><img src="${list.mv }" width="30" height="30" /></td>
@@ -57,11 +57,9 @@ $(function(){
 $(function(){
 	$("#select").click(function(){
 		var url = "/mp3/pass?mp3="
-		
 		$("input:checkbox[id='cBox']:checked").each(function(idx,row){
 			var record = $(row).parents("tr").children("#tt");
 			var t=record[0].innerText+"@@";
-// 			var t=record[0]+"@@";
 			console.log(t);
 			url+=t;
 		});
@@ -73,7 +71,6 @@ $(function(){
 $(function(){
 	$("#listen").click(function(){
 		var url = "/mp3/listen?mp3="
-		
 		$("input:checkbox[id='cBox']:checked").each(function(idx,row){
 			var record = $(row).parents("tr").children("#tt");
 			var t=record[0].innerText+"@@";
@@ -85,10 +82,9 @@ $(function(){
 });
 
 //º±≈√«— «—∞Ó µË±‚
-function selectOne(val){
-	console.log(val);
-// 	location.href="/mp3/Onelisten?title="+val;
-	window.open("/mp3/Onelisten?title="+val, "", "width=410,height=580");
+function selectOne(val,num){
+	console.log(num);
+	window.open("/mp3/Onelisten?num="+num, "", "width=410,height=580");
 }
 
 </script>

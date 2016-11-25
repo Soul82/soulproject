@@ -68,9 +68,16 @@ public class streamingServ {
 		return b;
 	}
 	
-	public List selectOneMp3(String title){
+	public MP3reposit selectOneMp3(int num){
 		SqlSession ss=fac.openSession();
-		List li=ss.selectList("mp3.selectList",title);
+		MP3reposit li=ss.selectOne("mp3.selectOne",num);
+		ss.close();
+		return li;
+	}
+	
+	public List<HashMap> albumList(String userid){
+		SqlSession ss=fac.openSession();
+		List<HashMap> li=ss.selectList("mp3.callAlbum",userid);
 		ss.close();
 		return li;
 	}

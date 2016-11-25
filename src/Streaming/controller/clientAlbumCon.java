@@ -34,15 +34,12 @@ public class clientAlbumCon {
 		System.out.println("controller==" + mp3);
 		ModelAndView mv = new ModelAndView();
 		session.setAttribute("mp3", mp3);
-////		 전달받은 값 @@로 자르기
-		List<String> ar = Arrays.asList(mp3.split("@@"));
-////		 ArrayList를 Map에 담기
-//		for (int i = 0; i < ar.size(); i++) {
-//			// DB insert parameter=> HashMap
-//			session.setAttribute("album", ar);
-//		}
+		String userid=(String)session.getAttribute("userId");
+//		List<String> ar = Arrays.asList(mp3.split("@@"));
+		List<HashMap> m=upServ.albumList(userid);
 		
-		mv.addObject("total", ar.size());
+		mv.addObject("m",m);
+		mv.addObject("total", m.size());
 		mv.setViewName("/admin/selectAlbum");
 		return mv;
 	}
@@ -69,7 +66,7 @@ public class clientAlbumCon {
 		
 		if(r==1){
 			System.out.println("앨범 생성");
-			mv.setViewName("/11");
+			mv.setViewName("/admin/selectAlbum");
 			mv.addObject("album",map);
 			return mv;
 		}else{
@@ -81,52 +78,46 @@ public class clientAlbumCon {
 
 	//선택한 노래듣기
 	@RequestMapping("/mp3/listen")
-	public ModelAndView selectList(String mp3) {
+	public ModelAndView selectList(String mp3,int num) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(mp3);
-		List<String> ar = Arrays.asList(mp3.split("@@"));
+		String[] titles = mp3.split("@@");
 
-		String title = null;
-		for (int h = 0; h < ar.size(); h++) {
-			title = ar.get(h);
-			System.out.println(title);
+		ArrayList<HashMap> musicList = new ArrayList<>();
+		for (int h = 0; h < titles.length; h++) {
+			String title = titles[h];
+			System.out.println("→"+title);
+			MP3reposit li = upServ.selectOneMp3(num);
 			
-			List<MP3reposit> li = upServ.selectOneMp3(title);
-
-			ArrayList<HashMap> musicList = new ArrayList<>();
-			for (int i = 0; i < li.size(); i++) {
 				HashMap<String, String> map = new HashMap<String, String>();
-				map.put("title", li.get(i).getTitle());
-				map.put("url", li.get(i).getUrl());
+				map.put("title", li.getTitle());
+				map.put("url", li.getUrl());
 				musicList.add(map);
-			}
-			mv.addObject("music", musicList);
-			mv.addObject("musicSize", musicList.size());
-			mv.addObject("list", li);
-			mv.setViewName("/soulplayer/player");
 		}
+		mv.addObject("music", musicList);
+		mv.addObject("musicSize", musicList.size());
+		mv.setViewName("/soulplayer/player");
 		return mv;
 	}
 
 	
 	//선택한 한곡 듣기
 	@RequestMapping("/mp3/Onelisten")
-	public ModelAndView selectOne(String title) {
+	public ModelAndView selectOne(int num) {
 		ModelAndView mv = new ModelAndView();
 		
-		List<MP3reposit> li = upServ.selectOneMp3(title);
+		MP3reposit li = upServ.selectOneMp3(num);
 		
 		ArrayList<HashMap> musicList = new ArrayList<>();
-		for (int i = 0; i < li.size(); i++) {
 			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("title", li.get(i).getTitle());
-			map.put("url", li.get(i).getUrl());
+			map.put("title", li.getTitle());
+			map.put("url", li.getUrl());
 			musicList.add(map);
-		}
 		mv.addObject("music", musicList);
 		mv.addObject("musicSize", musicList.size());
-		mv.addObject("list", li);
 		mv.setViewName("/soulplayer/player");
+		
 		return mv;
 	}
+	
 }

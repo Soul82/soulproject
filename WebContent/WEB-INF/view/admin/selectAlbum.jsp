@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
 <div class="container">
 	<h2>${sessionScope.userId} 님의 앨범 목록</h2> <hr/>
-  <form class="form-inline">
+  
     <div >
     	<br/>
     	<h4>총 <b> ${total }</b> 개의 노래 선택 </h4>
@@ -28,11 +28,13 @@
 				</tr>
 			</thead>
 			<tbody>
+			<c:forEach var="m" items="${m }">
 				<tr>
-					<td>앨범명</td>
+					<td>${m.ALBUMNAME }</td>
 					<td>노래 수</td>
-					<td>생성날짜</td>
+					<td>${m.MY_DATE }</td>
 				</tr>
+			</c:forEach>
 			</tbody>
 		</table>
     </div>
@@ -42,19 +44,19 @@
       <input class="form-control" id="albumName" type="text">
       <button type="submit" class="btn btn-default" id="make">만들기</button>
     </div>
-  </form>
+  
 </div>
 
 
 <script>
 $("#make").click(function(){
     var url="/mp3/makeAlbum?name="+$("#albumName").val();  
-//     $.ajax({      
-//         type:"get",  
-//         url:url,      
-//     }).done(function(resp){
-//     	$("#complete").html(resp);
-//     });  
-    window.open(url, "", "height=500; width=800");
+    $.ajax({      
+        type:"get",  
+        url:url,      
+    }).done(function(resp){
+    	$("#result").html(resp);
+    });  
 });  
+
 </script>

@@ -18,6 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from mp3repository where title=#{title}
 	</select>
 	
+	<select id="selectOne" parameterType="java.lang.Integer" resultType="Streaming.pojo.MP3reposit">
+		select * from mp3repository where num=#{num}
+	</select>
+	
 	<insert id="infoinsert" parameterType="java.util.HashMap">
 		insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
 	</insert>
@@ -25,4 +29,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertAlbum" parameterType="java.util.HashMap">
 		insert into myalbum values(myalbum_seq.nextval, #{my_id},#{albumname}, #{my_title}, sysdate)
 	</insert>
+
+	<select id="callAlbum" resultType="java.util.HashMap">
+		select * from myalbum where my_id=#{my_id} order by my_num desc
+	</select>
 </mapper>
