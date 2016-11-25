@@ -27,10 +27,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="insertAlbum" parameterType="java.util.HashMap">
-		insert into myalbum values(myalbum_seq.nextval, #{my_id},#{albumname}, #{my_title}, sysdate)
+		insert into myalbum values(myalbum_seq.nextval, #{userid},#{albumname}, #{title_num}, sysdate)
 	</insert>
 
 	<select id="callAlbum" resultType="java.util.HashMap">
-		select * from myalbum where my_id=#{my_id} order by my_num desc
+		select * from myalbum where userid=#{userid} order by num desc
 	</select>
+	
+	<select id="callMyList" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+		select * from myalbum where num=#{num}
+	</select>
+	
+	<delete id="deleteAlbum" parameterType="java.lang.Integer">	
+		delete from myalbum where num=#{num}
+	</delete>	
 </mapper>

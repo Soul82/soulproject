@@ -2,12 +2,22 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Sansita+One" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="/bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom Fonts -->
+
 <div class="container">
 <h2>Soul Music Chart</h2>
 	<tr>
 		<th>  <button type="button" class="btn btn-success" id="cBox_all">전체 선택</button></th>
 		<th>  <button type="button" class="btn btn-success" id="listen">선택 듣기</button></th>
-		<th>  <button type="button" class="btn btn-success" id="select">선택 담기</button></th>
+		<th>  <button type="button" class="btn btn-danger	" id="select">선택 삭제</button></th>
 	</tr>
 <div class="table-responsive">
 	<table class="table">
@@ -22,7 +32,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="list" items="${list }" varStatus="status">
+				<c:forEach var="list" items="${mp3list }" varStatus="status">
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td id="pk">${list.num }</td>
@@ -53,7 +63,7 @@ $(function(){
 	});
 });
 
-//선택담기
+//선택삭제
 $(function(){
 	$("#select").click(function(){
 		var url = "/mp3/pass?mp3="
@@ -81,7 +91,8 @@ $(function(){
 		window.open(url, "", "height=500; width=800");
 	});
 });
-//선택듣기===================================================================
+
+
 //선택한 한곡 듣기
 function selectOne(val,num){
 	console.log(num);

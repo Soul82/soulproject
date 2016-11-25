@@ -15,9 +15,14 @@
 	<h2>${sessionScope.userId} 님의 앨범 목록</h2> <hr/>
   
     <div >
-    	<br/>
     	<h4>총 <b> ${total }</b> 개의 노래 선택 </h4>
-    	<br/> 	<hr/>
+    	<hr/>
+    	
+	   	<div class="form-group" id="complete">	
+	      <label for="focusedInput">앨범명</label>
+	      <input class="form-control" id="albumName" type="text">
+	      <button type="submit" class="btn btn-default" id="make">만들기</button>
+	    </div>
     	
     	<table class="table">
 			<thead>
@@ -32,31 +37,35 @@
 				<tr>
 					<td>${m.ALBUMNAME }</td>
 					<td>노래 수</td>
-					<td>${m.MY_DATE }</td>
+					<td>${m.CREATEDATE }</td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
     </div>
-    
-    <div class="form-group" id="complete">	
-      <label for="focusedInput">앨범명</label>
-      <input class="form-control" id="albumName" type="text">
-      <button type="submit" class="btn btn-default" id="make">만들기</button>
-    </div>
-  
 </div>
 
 
 <script>
-$("#make").click(function(){
-    var url="/mp3/makeAlbum?name="+$("#albumName").val();  
-    $.ajax({      
-        type:"get",  
-        url:url,      
-    }).done(function(resp){
-    	$("#result").html(resp);
-    });  
-});  
+// $("#make").click(function(){
+//     var url="/mp3/makeAlbum?name="+$("#albumName").val();  
+//     $.ajax({      
+//         type:"get",  
+//         url:url,      
+//     }).done(function(resp){
+//     	$("#result").html(resp);
+//     });  
+// });  
+
+
+$(function(){
+	$("#make").click(function(){
+		var url = "/mp3/makeAlbum?name=";
+		var makeName=$("#albumName").val();
+		window.open(url+makeName, "", "height=500; width=800");
+		setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
+	});
+});
+
 
 </script>
