@@ -37,10 +37,10 @@ public class jAudioServ {
 	public HashMap jTagger(String artistp, String titlep) {
 		HashMap map = new HashMap();
 		try {
-
 			String encoding = "utf-8";
 			// DB 데이터 가져오기
 			List<MP3reposit> li = stream.ListMp3();
+			
 			// DB에서 [가수-제목] 으로 파일 이름 설정하기
 			String name = artistp + "-" + titlep;
 			System.out.println(name);
@@ -75,12 +75,12 @@ public class jAudioServ {
 
 			
 			// ==========================================
-			map.put("title", title);
-			map.put("artist", artist);
-			map.put("lyrics", lr);
-			map.put("year", year);
-			map.put("genre", genre);
-			map.put("album", album);
+				map.put("title", title);
+				map.put("artist", artist);
+				map.put("lyrics", lr);
+				map.put("year", year);
+				map.put("genre", genre);
+				map.put("album", album);
 			System.out.println(map.get("title") + "/!!/" + map.get("artist") + "/!!/" + map.get("year") + "/!!/"
 					+ map.get("genre") + "/!!/" + map.get("album"));
 

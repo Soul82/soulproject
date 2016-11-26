@@ -47,7 +47,8 @@
 									<li><a href="/admin/reglist">mp3 list</a></li>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
-									<li><a href="/naver/channel">음악 채널</a></li>
+									<li><a href="/naver/channelSSK">슈스케</a></li>
+									<li><a href="/naver/channelYHY">뉴이얼</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
 								</ul>
