@@ -40,5 +40,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<delete id="deleteAlbum" parameterType="java.lang.Integer">	
 		delete from myalbum where num=#{num}
-	</delete>	
+	</delete>
+	
+	<select id="search" parameterType="java.lang.String" resultType="java.util.HashMap"> 
+		select * from mp3repository where (title like #{search}) and (artist like #{search})
+	</select>
 </mapper>

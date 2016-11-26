@@ -131,7 +131,7 @@ public class clientAlbumCon {
 		return mv;
 	}
 	
-	
+	//내 앨범 목록
 	@RequestMapping("/mp3/albumlist")
 	public ModelAndView mp3albumList(int albumNum){
 		ModelAndView mv=new ModelAndView();
@@ -150,7 +150,7 @@ public class clientAlbumCon {
 		return mv;
 	}
 	
-	
+	//앨범목록에서 앨범 지우기
 	@RequestMapping("/mp3/deleteAlbum")
 	public ModelAndView delAlbum(int num){
 		ModelAndView mv=new ModelAndView();

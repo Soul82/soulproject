@@ -106,4 +106,12 @@ public class streamingServ {
 		ss.close();
 		return r;
 	}
+	
+	public List<HashMap> searchMusic(String search){
+		SqlSession ss=fac.openSession();
+		List<HashMap> li=ss.selectList("mp3.search", "%"+search+"%");
+		ss.close();
+		
+		return li;
+	}
 }

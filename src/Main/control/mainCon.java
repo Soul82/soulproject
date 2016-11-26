@@ -89,12 +89,6 @@ public class mainCon {
 			}
 			
 				
-				
-				
-
-			
-			
-
 			// ========================================================================
 
 			// Mnet
@@ -163,7 +157,6 @@ public class mainCon {
 				naverMusic.add(map);
 			}
 			List<MP3reposit> ls=upServ.ListMp3();
-			System.out.println(ls.get(0).getArtist());
 			mv.addObject("mp3",ls );
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
@@ -182,6 +175,23 @@ public class mainCon {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/soulplayer/player");
 		// mv.setViewName("#");
+		return mv;
+	}
+	
+	
+	@RequestMapping("/soulSearch")
+	public ModelAndView soulSearch(String search){
+		ModelAndView mv=new ModelAndView();
+		System.out.println(search);
+		List<HashMap> li=upServ.searchMusic(search);
+		
+		for(int i=0;i<li.size();i++){
+			System.out.println("타이틀?=="+li.get(i).get("TITLE"));
+			System.out.println("가수?=="+li.get(i).get("ARTIST"));
+		}
+		
+		mv.addObject("searchMusic",li);
+		mv.setViewName("/admin/searchResult");
 		return mv;
 	}
 }

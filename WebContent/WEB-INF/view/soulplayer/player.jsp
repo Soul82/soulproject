@@ -12,8 +12,8 @@
 
 <script type="text/javascript">
 	
-	
 $(document).ready(function(){
+	$('#autoplay').trigger('click');
 	new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
@@ -38,7 +38,6 @@ $(document).ready(function(){
 	});
 });
 
-
 </script>
 
 
@@ -50,7 +49,7 @@ $(document).ready(function(){
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
 				<button class="jp-previous" role="button" tabindex="0">previous</button>
-				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-play" role="button" tabindex="0" id="autoplay">play</button>
 				<button class="jp-next" role="button" tabindex="0">next</button>
 				<button class="jp-stop" role="button" tabindex="0">stop</button>
 			</div>

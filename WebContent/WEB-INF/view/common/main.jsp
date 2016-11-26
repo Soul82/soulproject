@@ -7,6 +7,18 @@
 	<div class="header-content">
 	    <div class="header-content-inner">
 	        <h1 id="homeHeading">Soul Music</h1>
+	        <br/><br/>
+	        
+	          <form action="/soulSearch">
+			    <div class="input-group input-group-lg">
+			      <input type="text" class="form-control" placeholder="Search music with SOUL MUSIC" name="search">
+			      <div class="input-group-btn">
+			      <button class="btn btn-default" type="submit" ><i class="glyphicon glyphicon-search"></i></button>
+			      </div>
+			    </div>
+  			</form>
+  
+  
 	        <hr>
 	        <a onclick="soulplayer()" class="btn btn-primary btn-xl page-scroll">Play music</a>
 	    </div>

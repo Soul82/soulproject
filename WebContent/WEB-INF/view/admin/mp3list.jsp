@@ -27,7 +27,7 @@
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td id="pk">${list.num }</td>
-					<td><i style="font-size:24px" class="fa">&#xf067;</i></td>
+					<td><i style="font-size:24px" class="fa" onclick="addOne('${list.num}')">&#xf067;</i></td>
 					<td>${list.artist }</td>
 					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
 					<td><i class="material-icons">&#xe87d;</i></td>
@@ -80,14 +80,28 @@ $(function(){
 			console.log(t);
 			url+=t;
 		});
-		window.open(url, "", "height=500; width=800");
+		window.open(url, "target", "height=500; width=800");
+		setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 	});
 });
-//선택듣기===================================================================
+
+//노래 목록에 추가하기===================================================================
+function addOne(num){
+	var url = "/mp3/listen?mp3="+num;
+	console.log(num);
+	 $.ajax ({
+		  type:"get",  
+	      url:url,      
+    }).done(function(resp){
+    	
+    });
+}	
+
 //선택한 한곡 듣기
 function selectOne(val,num){
 	console.log(num);
-	window.open("/mp3/Onelisten?num="+num, "", "width=440,height=150");
+	window.open("/mp3/Onelisten?num="+num, "target", "width=440,height=150");
+	setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 }
 
 </script>
