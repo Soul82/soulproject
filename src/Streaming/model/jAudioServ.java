@@ -47,8 +47,6 @@ public class jAudioServ {
 			// DB에 있는 해당 노래의 url가져오기
 			File file = new File(name + ".mp3");
 			// 이 밑으로 audio 정보 가져오는거
-			// String url = li.get(2).getUrl();
-			// System.out.println(url);
 			URL u = new URL(
 					"https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/" + URLEncoder.encode(name, encoding) + ".mp3");
 
@@ -69,16 +67,13 @@ public class jAudioServ {
 			
 			// ===============================================
 
-			Artwork artwork = tag.getFirstArtwork();
+			org.jaudiotagger.tag.images.Artwork artwork = tag.getFirstArtwork();
 
 			byte[] firstImage = artwork.getBinaryData();
-			System.out.println(firstImage);
+			System.out.println("???"+firstImage);
 			System.out.println(artwork.getMimeType());
 
 			
-			// BufferedImage bi =
-			// ImageIO.read(ImageIO.createImageInputStream(new
-			// ByteArrayInputStream(coverArtField.getData())
 			// ==========================================
 			map.put("title", title);
 			map.put("artist", artist);

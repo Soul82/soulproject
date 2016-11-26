@@ -40,7 +40,6 @@
     </div>
 </div>
 
-
 <script>
 function albumList(val){
 	console.log(val);
@@ -50,7 +49,14 @@ function albumList(val){
 }
 
 function del(val){
-	location.href="/mp3/deleteAlbum?num="+val;
+	var result = confirm('앨범을 정말 삭제하시겠습니까?');
+
+    if(result) {
+       //yes
+		location.href="/mp3/deleteAlbum?num="+val;
+    } else {
+        //no
+    }
 }
 
 </script>

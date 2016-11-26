@@ -21,21 +21,27 @@ $(document).ready(function(){
 			<c:forEach var="m" items="${music}" varStatus="loop">
 			{
 				"title" : "${m.title}",
-				"mp3" :"${m.url}"
+				"mp3" :"${m.url}",
+				"poster" : "/img/logo1.png"
 			}	
 			<c:if test="${loop.last eq false}">,</c:if>
 			</c:forEach>
 	], {
-		swfPath: "jPlayer/dist/jplayer",
+		swfPath: "/jPlayer/dist/jplayer",
 		supplied: "oga, mp3, m4a",
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
 		smoothPlayBar: true,
-		keyEnabled: true
+		keyEnabled: true,
+		audioFullScreen: true,
 	});
 });
+
+
 </script>
+
+
 </head>
 <body>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>

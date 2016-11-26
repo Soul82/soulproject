@@ -30,15 +30,9 @@ $("#bt-okay").click(function(){
     var url="/youtube/search?urlSearch="+$("#search").val();  
     $.ajax({      
         type:"get",  
-<<<<<<< HEAD
         url:url,      
-=======
-        url:url,
->>>>>>> branch 'master' of https://github.com/Soul82/soulproject.git
     }).done(function(resp){
     	$("#search_rst").html(resp);
     });  
 });  
-
-
 </script>

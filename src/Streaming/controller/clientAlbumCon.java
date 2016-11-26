@@ -120,7 +120,7 @@ public class clientAlbumCon {
 		MP3reposit li = upServ.selectOneMp3(num);
 		
 		ArrayList<HashMap> musicList = new ArrayList<>();
-			HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<String, String>();
 			map.put("title", li.getTitle());
 			map.put("url", li.getUrl());
 			musicList.add(map);

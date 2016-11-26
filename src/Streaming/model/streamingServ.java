@@ -71,9 +71,19 @@ public class streamingServ {
 
 	public MP3reposit selectOneMp3(int num) {
 		SqlSession ss = fac.openSession();
-		MP3reposit li = ss.selectOne("mp3.selectOne", num);
-		ss.close();
-		return li;
+		
+		// rank 올리는거 update하면 응답만 기다리고 실행되지 않음...이유 모름
+		
+//		int rst=0;
+//		rst+=ss.update("mp3.rankUp",num);
+//		
+//		if(rst==0){
+//			return null;
+//		}else{
+			MP3reposit li = ss.selectOne("mp3.selectOne", num);
+			ss.close();
+			return li;
+//		}
 	}
 
 	public List<HashMap> albumList(String userid) {

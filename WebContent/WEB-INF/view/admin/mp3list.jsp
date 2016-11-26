@@ -15,8 +15,9 @@
 				<tr>
 					<th>check</th>
 					<th>rank</th>
-					<th>title</th>
+					<th></th>
 					<th>artist</th>
+					<th>title</th>
 					<th>like</th>
 					<th>MV</th>
 				</tr>
@@ -26,10 +27,11 @@
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td id="pk">${list.num }</td>
-					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
+					<td><i style="font-size:24px" class="fa">&#xf067;</i></td>
 					<td>${list.artist }</td>
-					<td><img src="/img/like.jpg" width="30" height="30" /></td>
-					<td><img src="${list.mv }" width="30" height="30" /></td>
+					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
+					<td><i class="material-icons">&#xe87d;</i></td>
+					<td><i style="font-size:24px" class="fa" value="${list.mv }">&#xf16a;</i></td>
 				</tr>
 				</c:forEach>
 			</tbody>
