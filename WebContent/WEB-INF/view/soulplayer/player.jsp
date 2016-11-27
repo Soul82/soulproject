@@ -13,7 +13,6 @@
 <script type="text/javascript">
 	
 $(document).ready(function(){
-	$('#autoplay').trigger('click');
 	new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
@@ -36,7 +35,13 @@ $(document).ready(function(){
 		keyEnabled: true,
 		audioFullScreen: true,
 	});
+	
+	
 });
+
+// $("#autoplay").click(fucntion(){
+// 	$("#jquery_jplayer_1").jPlayer("play",1);
+// });
 
 </script>
 

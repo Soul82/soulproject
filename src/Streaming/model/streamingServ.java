@@ -107,9 +107,9 @@ public class streamingServ {
 		return r;
 	}
 	
-	public List<HashMap> searchMusic(String search){
+	public List searchMusic(String search){
 		SqlSession ss=fac.openSession();
-		List<HashMap> li=ss.selectList("mp3.search", "%"+search+"%");
+		List li=ss.selectList("mp3.search", "%"+search+"%");
 		ss.close();
 		
 		return li;

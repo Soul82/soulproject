@@ -11,7 +11,11 @@
 	        
 	          <form action="/soulSearch">
 			    <div class="input-group input-group-lg">
-			      <input type="text" class="form-control" placeholder="Search music with SOUL MUSIC" name="search">
+			      <input type="text" class="form-control" placeholder="Search music" id="search" name="search">
+					<datalist id="datas">
+					
+					</datalist>
+			      
 			      <div class="input-group-btn">
 			      <button class="btn btn-default" type="submit" ><i class="glyphicon glyphicon-search"></i></button>
 			      </div>
@@ -216,7 +220,24 @@
 		window.open(url, "choice", "height=200; width=100");
 	});
 
-</script>    
 
+$("#search").keyup(function(){
+	
+	var word=$("#search").val();
+	console.log(word);
+	
+	 var url="/soulSearch?search="+word;  
+	    $.ajax({      
+	        type:"get",  
+	        url:url,      
+	    }).done(function(json){
+	    	var resp=$.parseJSON(json);
+	    	var out="";
+			for(var i=0;i<resp.length;i++){
+				out+="<option>"+resp[i]+"</option>";
+		}
+		$("#datas").append(out);
+    });  
+});
 
-    
+</script>
