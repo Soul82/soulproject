@@ -56,11 +56,10 @@
            
                <c:forEach var="mp3" items="${mp3 }" begin="1" end="12" step="1">
                 <div class="col-lg-33 col-sm-2">
-                    <a href="" class="portfolio-box">
-                        <img src="" class="img-responsive" style="width:300px;height:300px">
+                    <a href="/albuminfo" class="portfolio-box">
+                        <img src="/${mp3.artist}${mp3.title}.png" class="img-responsive" style="width:300px;height:300px">
                         <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                             
+                            <div class="portfolio-box-caption-content">  		
                                <div class="project-category text-faded">
                                	 ${mp3.title }
                                </div>

@@ -184,4 +184,14 @@ public class mainCon {
 		// mv.setViewName("#");
 		return mv;
 	}
+	@RequestMapping("/albuminfo")
+	public ModelAndView albuminfo(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/soulplayer/player");
+		List<MP3reposit> ls=upServ.ListMp3();
+		System.out.println(ls.get(0).getArtist());
+		mv.addObject("mp3",ls );
+		mv.setViewName("/common/albuminfo");
+		return mv;
+	}
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
+import javax.servlet.ServletContext;
 
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
@@ -33,7 +34,8 @@ import Streaming.pojo.MP3reposit;
 public class jAudioServ {
 	@Autowired
 	streamingServ stream;
-
+	@Autowired
+	ServletContext app;
 	public HashMap jTagger(String artistp, String titlep) {
 		HashMap map = new HashMap();
 		try {
@@ -59,6 +61,8 @@ public class jAudioServ {
 
 			Tag tag = mp3.getTag();
 			System.out.println("####"+tag.getFirstArtwork());
+			System.out.println(tag.getFields(tag.getFirst(FieldKey.COVER_ART)));
+			
 			String lr = tag.getFirst(FieldKey.LYRICS);
 			String title = tag.getFirst(FieldKey.TITLE);
 			String artist = tag.getFirst(FieldKey.ARTIST);
@@ -70,11 +74,14 @@ public class jAudioServ {
 			// ===============================================
 
 			Artwork artwork = tag.getFirstArtwork();
+            System.out.println(artwork);
 
 			byte[] firstImage = artwork.getBinaryData();
 			System.out.println(firstImage);
 			System.out.println(artwork.getMimeType());
-
+			String dir= app.getRealPath("/");
+			System.out.println(dir);
+			FileCopyUtils.copy(firstImage, new File(dir+artistp+titlep+".png"));
 			
 			// BufferedImage bi =
 			// ImageIO.read(ImageIO.createImageInputStream(new
