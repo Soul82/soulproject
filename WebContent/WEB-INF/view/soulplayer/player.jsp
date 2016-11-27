@@ -5,13 +5,12 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="jPlayer/lib/jquery.min.js"></script>
-<script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
+<link href="/jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/jPlayer/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
 
 <script type="text/javascript">
-	
 	
 $(document).ready(function(){
 	new jPlayerPlaylist({
@@ -21,21 +20,32 @@ $(document).ready(function(){
 			<c:forEach var="m" items="${music}" varStatus="loop">
 			{
 				"title" : "${m.title}",
-				"mp3" :"${m.url}"
+				"mp3" :"${m.url}",
+				"poster" : "/img/logo1.png"
 			}	
 			<c:if test="${loop.last eq false}">,</c:if>
 			</c:forEach>
 	], {
-		swfPath: "jPlayer/dist/jplayer",
+		swfPath: "/jPlayer/dist/jplayer",
 		supplied: "oga, mp3, m4a",
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
 		smoothPlayBar: true,
-		keyEnabled: true
+		keyEnabled: true,
+		audioFullScreen: true,
 	});
+	
+	
 });
+
+// $("#autoplay").click(fucntion(){
+// 	$("#jquery_jplayer_1").jPlayer("play",1);
+// });
+
 </script>
+
+
 </head>
 <body>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -44,7 +54,7 @@ $(document).ready(function(){
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
 				<button class="jp-previous" role="button" tabindex="0">previous</button>
-				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-play" role="button" tabindex="0" id="autoplay">play</button>
 				<button class="jp-next" role="button" tabindex="0">next</button>
 				<button class="jp-stop" role="button" tabindex="0">stop</button>
 			</div>

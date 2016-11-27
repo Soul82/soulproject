@@ -5,7 +5,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="container">
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -45,7 +45,10 @@
 									<li><a href="/board/review">리뷰 작성</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
+									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
+									<li><a href="/naver/channelSSK">슈스케</a></li>
+									<li><a href="/naver/channelYHY">뉴이얼</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
 								</ul>
@@ -65,7 +68,7 @@
 				<div class="modal-header" style="padding: 35px 50px;">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4>
-						<span class="glyphicon glyphicon-lock"></span> Login
+						<span class="glyphicon glyphicon-lock"></span> Soul82 Login
 					</h4>
 				</div>
 				<div class="modal-body" style="padding: 40px 50px;">
@@ -73,18 +76,18 @@
 					<form action="/member/login">
 						<div class="form-group">
 							<label for="usrname"><span
-								class="glyphicon glyphicon-user"></span> Username</label> <input
+								class="glyphicon glyphicon-user"></span> ID</label> <input
 								type="text" class="form-control" id="id" name="id"
-								placeholder="Enter your id" required="required">
+								placeholder="ID를 입력해주세요!" required="required">
 						</div>
 						<div class="form-group">
 							<label for="psw"><span
-								class="glyphicon glyphicon-eye-open"></span> Password</label> <input
+								class="glyphicon glyphicon-eye-open"></span> PASSWORD</label> <input
 								type="password" class="form-control" id="pass" name="pass"
-								placeholder="Enter password" required="required">
+								placeholder="비밀번호를 입력해주세요!" required="required">
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" value="" checked>Remember me</label>
+							<label><input type="checkbox" value="" checked>나를 기억해줘</label>
 						</div>
 						<button type="submit" class="btn btn-success btn-block">
 							<span class="glyphicon glyphicon-off"></span> Login
@@ -98,10 +101,10 @@
 						<span class="glyphicon glyphicon-remove"></span> Cancel
 					</button>
 					<p>
-						아직 회원이 아니신가요? <a href="/member/joinPage">Sign Up</a>
+						지금 소울뮤직의 가족이 되어주세요! <a href="/member/joinPage">Sign Up</a>
 					</p>
 					<p>
-						Forgot <a href="/member/passFindView">Password?</a>
+						비밀번호 찾기 <a href="/member/passFindView">Find password</a>
 					</p>
 				</div>
 			</div>

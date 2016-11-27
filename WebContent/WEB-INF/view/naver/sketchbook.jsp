@@ -20,31 +20,51 @@
 	</style>
 </head>
 
-<body>
+<header>
 
 <div class="container" style="padding-top: 5%">
+<img src="/img/sketchbook_logo.png" class="img-circle" alt="Cinque Terre" width="200" height="140" />
+<h2>유희열의 스케치북</h2> 
+</div>
+<hr/>
+
+<div class="container"id="castplay">
+</div>
+
+<hr/>
+<div class="container" style="padding-top: 5%">
 	<table class="tg" style="background: white ;" > 
-	<c:forEach var="i" items="${search }">
 	  <tr>
-	    <th class="tg-yw4l" rowspan="3"><img src="${i.image}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>
-	    <th class="tg-yw4l"><a onclick="mvOpen('${i.video}')">${i.title }</a></th>
+		<c:forEach var="i" items="${yhy }">
+	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>
+  		</c:forEach>
 	  </tr>
 	  <tr>
+	  	<c:forEach var="i" items="${yhy }">
+	    <td class="tg-yw4l" onclick="sskCast('${i.link}')">${i.title}</td>
+	    </c:forEach>
+	  </tr>
+	  <tr>
+	  	<c:forEach var="i" items="${yhy }">
 	    <td class="tg-yw4l">재생시간 : ${i.time }</td>
+	    </c:forEach>
 	  </tr>
-	  <tr>
-	    <td class="tg-yw4l">설명</td>
-	  </tr>
-	  </c:forEach>
 	</table>
 </div>
 
-	
-<script>
-function mvOpen(val){
-	var popOption = "width=655, height=380, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	console.log(val);
-	window.open("/youtube/mvplay?key="+val,"youtube",popOption);
-}
-</script>
 
+</header>
+
+<script>
+function sskCast(link){
+	var url="/naver/cast?link="+link;
+// 	window.open(url,"","");
+    $.ajax({      
+        type:"get",  
+        url:url,      
+    }).done(function(resp){
+    	$("#castplay").html(resp);
+    });  
+}
+ 
+</script>

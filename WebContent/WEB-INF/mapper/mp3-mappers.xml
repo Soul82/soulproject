@@ -14,8 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from mp3repository order by num desc
 	</select>
 	
-	<select id="selectList" parameterType="java.lang.String" resultType="Streaming.pojo.MP3reposit">
-		select * from mp3repository where title=#{title}
+	<select id="selectOne" parameterType="java.lang.Integer" resultType="Streaming.pojo.MP3reposit">
+		select * from mp3repository where num=#{num}
+	</select>
+	
+	<select id="rankUp" parameterType="java.lang.Integer">
+		update mp3repository set rank =	rank +1 where num=#{num}
 	</select>
 	
 	<insert id="infoinsert" parameterType="java.util.HashMap">
@@ -23,6 +27,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="insertAlbum" parameterType="java.util.HashMap">
-		insert into myalbum values(myalbum_seq.nextval, #{my_id},#{albumname}, #{my_title}, sysdate)
+		insert into myalbum values(myalbum_seq.nextval, #{userid},#{albumname}, #{title_num}, sysdate)
 	</insert>
+
+	<select id="callAlbum" resultType="java.util.HashMap">
+		select * from myalbum where userid=#{userid} order by num desc
+	</select>
+	
+	<select id="callMyList" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+		select * from myalbum where num=#{num}
+	</select>
+	
+	<delete id="deleteAlbum" parameterType="java.lang.Integer">	
+		delete from myalbum where num=#{num}
+	</delete>
+	
+	<select id="search" parameterType="java.lang.String" resultType="Streaming.pojo.MP3reposit"> 
+		select * from mp3repository where (title like #{search}) or (artist like #{search})
+	</select>
 </mapper>

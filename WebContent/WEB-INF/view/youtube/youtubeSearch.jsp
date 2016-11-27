@@ -30,11 +30,9 @@ $("#bt-okay").click(function(){
     var url="/youtube/search?urlSearch="+$("#search").val();  
     $.ajax({      
         type:"get",  
-        url:url,
+        url:url,      
     }).done(function(resp){
     	$("#search_rst").html(resp);
     });  
 });  
-
-
 </script>
