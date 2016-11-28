@@ -192,7 +192,7 @@ public class mainCon {
 		return mv;
 }
 
-	
+	//메인 페이지 전체 검색 결과 출력
 	@RequestMapping("/soulSearch")
 	public ModelAndView soulSearch(String search){
 		ModelAndView mv=new ModelAndView();
@@ -203,20 +203,17 @@ public class mainCon {
 		return mv;
 	}
 	
+	// ajax로 실시간 검색어 처리해주기
 	@RequestMapping("/search/word")
-	@ResponseBody
-	public List searchWord(String search){
-		List<MP3reposit> li=upServ.searchMusic(search);
-		
-		ArrayList<HashMap> ar=new ArrayList<>();
-		for(int i=0;i<ar.size();i++){
-			HashMap<String,String> map=new HashMap<>();
-			map.put("title", li.get(i).getTitle());
-			map.put("artist", li.get(i).getArtist());
-			ar.add(map);
+	public ModelAndView searchWord(String search){
+		if(search ==null||search.equals("")){
+			return null;
 		}
 		
-		return li;
-
+		ModelAndView mv=new ModelAndView();
+		List<HashMap> li=upServ.searchMusic(search);
+		mv.addObject("ajax",li);
+		mv.setViewName("/admin/searchAjax");
+		return mv;
 	}
 }

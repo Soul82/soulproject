@@ -33,7 +33,7 @@
 
 <hr/>
 <div class="container" style="padding-top: 5%">
-	<table class="tg" style="background: white ;" > 
+	<table class="tg" style="background: white;">
 	  <tr>
 		<c:forEach var="i" items="${ssk }">
 	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>

@@ -40,7 +40,6 @@
 </div>
 
 <script>
-
 //전체선택
 $(function(){
 	var chk=false;
@@ -103,5 +102,4 @@ function selectOne(val,num){
 	window.open("/mp3/Onelisten?num="+num, "target", "width=440,height=150");
 	setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 }
-
 </script>

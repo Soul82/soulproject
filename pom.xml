@@ -107,7 +107,6 @@
 		<version>4.3.3.RELEASE</version>
 	</dependency>
 		
-		
 	<!-- https://mvnrepository.com/artifact/org/jaudiotagger -->
 	<dependency>
 	    <groupId>org</groupId>
@@ -115,14 +114,12 @@
 	    <version>2.0.3</version>
 	</dependency>
 	
-	
 	<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
 	<dependency>
 	    <groupId>com.amazonaws</groupId>
 	    <artifactId>aws-java-sdk</artifactId>
 	    <version>1.11.58</version>
 	</dependency>
-		
 		
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
 	<dependency>
