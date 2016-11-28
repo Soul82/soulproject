@@ -53,9 +53,9 @@ public class streamingServ {
 		return li;
 	}
 
-	public void songinfo(String artistp, String titlep) {
+	public void songinfo(String artist, String title) {
 		SqlSession ss = fac.openSession();
-		HashMap map = ja.jTagger(artistp, titlep);
+		HashMap map = ja.jTagger(artist, title);
 		System.out.println(map.get("title"));
 
 		ss.close();

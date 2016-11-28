@@ -78,6 +78,39 @@
         </div>
     </section>
      -->
+<<<<<<< HEAD
+=======
+     
+    	<section class="no-padding" id="album">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+           
+               <c:forEach var="mp3" items="${mp3 }" begin="1" end="12" step="1">
+                <div class="col-lg-33 col-sm-2">
+                    
+                   <a href="/albuminfo" 
+                   onclick="window.open('/albuminfo?num=${mp3.num}',
+                   'new','width:85px,height:100px')" class="portfolio-box" >
+                        <img src="/albumimage/${mp3.artist}${mp3.title}.png" class="img-responsive" style="width:300px;height:300px" id="aimg" value="${mp3.artist}${mp3.title}">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">  		
+                               <div class="project-category text-faded">
+                               	 ${mp3.title }
+                               </div>
+                             
+                                <div class="project-name">
+                                    ${mp3.artist }
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                  </c:forEach>    
+                
+            </div>
+        </div>
+    </section>
+>>>>>>> branch 'master' of https://github.com/Soul82/soulproject.git
 
 <section class="no-padding" id="album">
 	<div class="container-fluid">
@@ -247,5 +280,7 @@ $("#search").keyup(function(){
 	  	$("#datas").html(resp);
 	});
 });
+
+
 
 </script>

@@ -13,6 +13,8 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 import javax.servlet.ServletContext;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
@@ -24,6 +26,8 @@ import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 import org.jaudiotagger.tag.id3.ID3v24Tag;
 import org.jaudiotagger.tag.id3.framebody.FrameBodyAPIC;
 import org.jaudiotagger.tag.id3.valuepair.TextEncoding;
+
+
 import org.jaudiotagger.tag.mp4.Mp4Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
@@ -36,6 +40,8 @@ public class jAudioServ {
 	streamingServ stream;
 	@Autowired
 	ServletContext app;
+	@Autowired
+	SqlSessionFactory fac;
 	public HashMap jTagger(String artistp, String titlep) {
 		HashMap map = new HashMap();
 		try {
@@ -72,16 +78,12 @@ public class jAudioServ {
 			// ===============================================
 
 
-			Artwork artwork = (Artwork)tag.getFirstArtwork();
-            System.out.println(artwork);
-
-
+			Artwork artwork =tag.getFirstArtwork();
+            
 			byte[] firstImage = artwork.getBinaryData();
-			System.out.println("???"+firstImage);
-			System.out.println(artwork.getMimeType());
-			String dir= app.getRealPath("/");
-			System.out.println(dir);
-			FileCopyUtils.copy(firstImage, new File(dir+artistp+titlep+".png"));
+			String dir= app.getRealPath("/albumimage");
+			
+			FileCopyUtils.copy(firstImage, new File(dir,artistp+titlep+".png"));
 			
 			// ==========================================
 				map.put("title", title);
@@ -90,8 +92,12 @@ public class jAudioServ {
 				map.put("year", year);
 				map.put("genre", genre);
 				map.put("album", album);
+				map.put("savetitle", titlep);
+				map.put("saveartist", artistp);
 			System.out.println(map.get("title") + "/!!/" + map.get("artist") + "/!!/" + map.get("year") + "/!!/"
 					+ map.get("genre") + "/!!/" + map.get("album"));
+			SqlSession sql = fac.openSession();
+			sql.insert("mp3.infoinsert",map);
 
 			// System.out.println("Tag : " + tag2);
 			System.out.println("gasa : " + lr);
