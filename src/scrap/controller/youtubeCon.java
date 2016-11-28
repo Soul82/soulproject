@@ -32,9 +32,6 @@ public class youtubeCon {
 	@RequestMapping("/youtube/search")
 	public ModelAndView mvSearch(String urlSearch) {
 		try {
-			
-			
-			
 			System.out.println("À¯ºZ °Ë»ö¾î"+urlSearch);
 			String urlPath = "https://www.youtube.com/results?search_query="+URLEncoder.encode(urlSearch,"UTF-8");
 			System.out.println(URLEncoder.encode(urlSearch, "UTF-8"));
@@ -79,10 +76,10 @@ public class youtubeCon {
 			
 			for (int i = 0; i < 5; i++) {
 				HashMap<String,String>map=new HashMap<>();
-				video = vSplit[i+1].split("\"");
-				time = tSplit[i+1].split("<");
-				image = iSplit2[i+5].split(".jpg");
-				title= titleSplit[i+4+i].split("<");
+				video = vSplit[i+2].split("\"");
+				time = tSplit[i+2].split("<");
+				title= titleSplit[i+3].split("<");
+				image = iSplit2[i+3].split(".jpg");
 				
 				System.out.println(image[0]);
 				

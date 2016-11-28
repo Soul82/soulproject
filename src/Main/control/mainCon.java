@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import Streaming.model.streamingServ;
@@ -27,8 +28,8 @@ public class mainCon {
 		try {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
-			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
 			String mnetSite = "http://www.mnet.com/chart/TOP100/20161118";
+			String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
 
 			// bugs
 			Source bugSource = new Source(new URL(bugsStie));
@@ -89,12 +90,6 @@ public class mainCon {
 			}
 			
 				
-				
-				
-
-			
-			
-
 			// ========================================================================
 
 			// Mnet
@@ -121,7 +116,9 @@ public class mainCon {
 				map.put("album", album[0]);
 				mnet.add(map);
 			}
-
+			
+			
+			//여기서부터 naver.com
 			String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
 			String pageContents = "";
 			StringBuilder contents = new StringBuilder();
@@ -163,7 +160,6 @@ public class mainCon {
 				naverMusic.add(map);
 			}
 			List<MP3reposit> ls=upServ.ListMp3();
-			System.out.println(ls.get(0).getArtist());
 			mv.addObject("mp3",ls );
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
@@ -183,5 +179,44 @@ public class mainCon {
 		mv.setViewName("/soulplayer/player");
 		// mv.setViewName("#");
 		return mv;
+	}
+
+	@RequestMapping("/albuminfo")
+	public ModelAndView albuminfo(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/soulplayer/player");
+		List<MP3reposit> ls=upServ.ListMp3();
+		System.out.println(ls.get(0).getArtist());
+		mv.addObject("mp3",ls );
+		mv.setViewName("/common/albuminfo");
+		return mv;
+}
+
+	
+	@RequestMapping("/soulSearch")
+	public ModelAndView soulSearch(String search){
+		ModelAndView mv=new ModelAndView();
+		System.out.println(search);
+		List<MP3reposit> li=upServ.searchMusic(search);
+		mv.addObject("list",li);
+		mv.setViewName("body:admin/mp3list");
+		return mv;
+	}
+	
+	@RequestMapping("/search/word")
+	@ResponseBody
+	public List searchWord(String search){
+		List<MP3reposit> li=upServ.searchMusic(search);
+		
+		ArrayList<HashMap> ar=new ArrayList<>();
+		for(int i=0;i<ar.size();i++){
+			HashMap<String,String> map=new HashMap<>();
+			map.put("title", li.get(i).getTitle());
+			map.put("artist", li.get(i).getArtist());
+			ar.add(map);
+		}
+		
+		return li;
+
 	}
 }

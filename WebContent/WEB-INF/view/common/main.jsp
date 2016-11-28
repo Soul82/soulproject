@@ -7,6 +7,22 @@
 	<div class="header-content">
 	    <div class="header-content-inner">
 	        <h1 id="homeHeading">Soul Music</h1>
+	        <br/><br/>
+	        
+	          <form action="/soulSearch">
+			    <div class="input-group input-group-lg">
+			      <input type="text" class="form-control" placeholder="Search music" id="search" name="search">
+					<datalist id="datas">
+					
+					</datalist>
+			      
+			      <div class="input-group-btn">
+			      <button class="btn btn-default" type="submit" ><i class="glyphicon glyphicon-search"></i></button>
+			      </div>
+			    </div>
+  			</form>
+  
+  
 	        <hr>
 	        <a onclick="soulplayer()" class="btn btn-primary btn-xl page-scroll">Play music</a>
 	    </div>
@@ -56,11 +72,10 @@
            
                <c:forEach var="mp3" items="${mp3 }" begin="1" end="12" step="1">
                 <div class="col-lg-33 col-sm-2">
-                    <a href="" class="portfolio-box">
-                        <img src="" class="img-responsive" style="width:300px;height:300px">
+                    <a href="/albuminfo" class="portfolio-box">
+                        <img src="/${mp3.artist}${mp3.title}.png" class="img-responsive" style="width:300px;height:300px">
                         <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                             
+                            <div class="portfolio-box-caption-content">  		
                                <div class="project-category text-faded">
                                	 ${mp3.title }
                                </div>
@@ -204,7 +219,24 @@
 		window.open(url, "choice", "height=200; width=100");
 	});
 
-</script>    
 
+$("#search").keyup(function(){
+	
+	var word=$("#search").val();
+	console.log(word);
+	
+	 var url="/soulSearch?search="+word;  
+	    $.ajax({      
+	        type:"get",  
+	        url:url,      
+	    }).done(function(json){
+	    	var resp=$.parseJSON(json);
+	    	var out="";
+			for(var i=0;i<resp.length;i++){
+				out+="<option>"+resp[i]+"</option>";
+		}
+		$("#datas").append(out);
+    });  
+});
 
-    
+</script>
