@@ -11,7 +11,7 @@
          <p>
          
             <label>ป็ม๘</label>
-            <img src="/${img.IMGNAME}" width="30" height="30"/>
+            <img src="/memberimage/${img.IMGNAME}" width="30" height="30"/>
             
          </p>
          <p>

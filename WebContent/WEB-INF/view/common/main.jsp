@@ -76,7 +76,7 @@
                    <a href="/albuminfo" 
                    onclick="window.open('/albuminfo?num=${mp3.num}',
                    'new','width:85px,height:100px')" class="portfolio-box" >
-                        <img src="/${mp3.artist}${mp3.title}.png" class="img-responsive" style="width:300px;height:300px" id="aimg" value="${mp3.artist}${mp3.title}">
+                        <img src="/albumimage/${mp3.artist}${mp3.title}.png" class="img-responsive" style="width:300px;height:300px" id="aimg" value="${mp3.artist}${mp3.title}">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">  		
                                <div class="project-category text-faded">

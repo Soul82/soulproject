@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import Streaming.model.AlbumSer;
 import Streaming.model.streamingServ;
 import Streaming.pojo.MP3reposit;
 import net.htmlparser.jericho.Source;
@@ -22,6 +23,8 @@ import net.htmlparser.jericho.Source;
 public class mainCon {
 	@Autowired
 	streamingServ upServ;
+	@Autowired
+	AlbumSer as;
 	@RequestMapping({ "/", "/index" })
 	public ModelAndView main() {
 
@@ -35,8 +38,8 @@ public class mainCon {
 			Source bugSource = new Source(new URL(bugsStie));
 			bugSource.getAllTags();
 			bugSource.fullSequentialParse();
-
 			String sourBugs = bugSource.toString();
+
 			String[] bugsTitle = sourBugs.split("name=\"check\" disc_id=\"1\" title=\"");
 			String[] title = null;
 
@@ -182,12 +185,12 @@ public class mainCon {
 	}
 
 	@RequestMapping("/albuminfo")
-	public ModelAndView albuminfo(String artist,String title){
+	public ModelAndView albuminfo(int num){
 		ModelAndView mv = new ModelAndView();
 		
-		List<MP3reposit> ls=upServ.ListMp3();
+		HashMap info=as.songinfo(num);
 		
-		mv.addObject("mp3",ls );
+		mv.addObject("mp3",info );
 		mv.setViewName("/common/albuminfo");
 		return mv;
 }
