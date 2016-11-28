@@ -47,7 +47,6 @@
   
 </div>
 
-
 <script>
 $("#make").click(function(){
     var url="/mp3/makeAlbum?name="+$("#albumName").val();  
