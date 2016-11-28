@@ -23,12 +23,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="infoinsert" parameterType="java.util.HashMap">
-		insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
+		insert into songsdata values(songsdata_seq.nextval#,{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album},#{savetitle}, #{saveartist})
 	</insert>
+	<select id="getAlbum" resultType="java.util.HashMap">
+		select * from songsdata where num=#{num} 
+	</select>
 	
 	<insert id="insertAlbum" parameterType="java.util.HashMap">
 		insert into myalbum values(myalbum_seq.nextval, #{userid},#{albumname}, #{title_num}, sysdate)
 	</insert>
+	
 
 	<select id="callAlbum" resultType="java.util.HashMap">
 		select * from myalbum where userid=#{userid} order by num desc

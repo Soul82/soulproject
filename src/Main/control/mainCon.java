@@ -182,17 +182,15 @@ public class mainCon {
 	}
 
 	@RequestMapping("/albuminfo")
-	public ModelAndView albuminfo(){
+	public ModelAndView albuminfo(String artist,String title){
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/soulplayer/player");
+		
 		List<MP3reposit> ls=upServ.ListMp3();
-		System.out.println(ls.get(0).getArtist());
+		
 		mv.addObject("mp3",ls );
 		mv.setViewName("/common/albuminfo");
 		return mv;
 }
-
-	
 	@RequestMapping("/soulSearch")
 	public ModelAndView soulSearch(String search){
 		ModelAndView mv=new ModelAndView();
